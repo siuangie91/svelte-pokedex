@@ -1,5 +1,11 @@
+<script lang="ts">
+  import SectionHeader from "./SectionHeader.svelte";
+
+  export let title = '';
+</script>
+
 <section>
-  <h1>Dropdown</h1>
+  <SectionHeader content={title} />
 </section>
 
 <style>

@@ -5,8 +5,8 @@
 
 <main>
   <h1>Svelte Pokédex</h1>
-  <DropdownContainer />
-  <SeenContainer />
+  <DropdownContainer title="What Pokémon did you see?" />
+  <SeenContainer title="Here's what you've seen so far:" />
 </main>
 
 <style>
