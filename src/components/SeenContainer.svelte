@@ -1,25 +1,25 @@
 <script lang="ts">
-	import SectionHeader from './SectionHeader.svelte';
+  import SectionHeader from './SectionHeader.svelte';
 
-	export let title = '';
+  export let title = '';
 </script>
 
 <section>
-	<SectionHeader content={title} />
+  <SectionHeader content={title} />
 </section>
 
 <style>
-	section {
-		position: relative;
-		min-height: 150px;
-		margin-bottom: 10px;
-		padding: 10px;
-		border-radius: 5px;
+  section {
+    position: relative;
+    min-height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
 
-		background: #ddd;
-	}
+    background: #ddd;
+  }
 
-	/* @media screen and (min-width: 500px) {
+  /* @media screen and (min-width: 500px) {
     section {
       float: right;
       width: calc(50% - 25px);
