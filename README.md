@@ -1,3 +1,11 @@
+# svelte-pokedex
+
+A redo of my [react-pokedex](https://github.com/siuangie91/svelte-pokedex.git) project using the [Svelte](https://svelte.dev/) framework.
+
+Scaffolded with [SvelteKit](https://kit.svelte.dev/).
+
+# 🛑 This is a Work-In-Progress 🛑
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
