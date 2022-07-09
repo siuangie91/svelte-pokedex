@@ -1,11 +1,13 @@
 <script lang="ts">
   import SectionHeader from './SectionHeader.svelte';
+  import Dropdown from './Dropdown.svelte';
 
   export let title = '';
 </script>
 
 <section>
   <SectionHeader content={title} />
+  <Dropdown />
 </section>
 
 <style>
