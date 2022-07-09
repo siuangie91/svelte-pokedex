@@ -1,0 +1,23 @@
+<section>
+  <h1>Dropdown</h1>
+</section>
+
+<style>
+  section {
+    position: relative;
+    min-height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+
+    background: #ccc;
+  }
+  
+  /* @media screen and (min-width: 500px) {
+    section {
+      float: left;
+      width: calc(50% - 25px);
+      min-height: 50vh;
+    }
+  } */
+</style>
