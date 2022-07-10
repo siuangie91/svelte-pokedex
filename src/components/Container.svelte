@@ -6,6 +6,7 @@
 
 <section>
   <SectionHeader content={title} />
+  <!-- receive any children components -->
   <slot />
 </section>
 
