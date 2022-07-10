@@ -8,8 +8,14 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: adapter()
-  }
+    adapter: adapter(),
+
+    alias: {
+      src: 'src/.',
+      components: 'src/components',
+      utils: 'src/utils',
+    },
+  },
 };
 
 export default config;

@@ -9,3 +9,19 @@ declare namespace App {
   // interface Session {}
   // interface Stuff {}
 }
+
+declare namespace PokemonAPI {
+  interface PokemonSpecies {
+    name: string;
+    url: string;
+  }
+
+  interface Entry {
+    entry_number: number;
+    pokemon_species: PokemonSpecies;
+  }
+
+  interface ApiResponse {
+    pokemon_entries: Entry[];
+  }
+}
