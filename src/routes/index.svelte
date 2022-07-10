@@ -1,12 +1,14 @@
 <script>
-  import DropdownContainer from '../components/DropdownContainer.svelte';
-  import SeenContainer from '../components/SeenContainer.svelte';
+  import Container from '../components/Container.svelte';
+  import Dropdown from '../components/Dropdown.svelte';
 </script>
 
 <main>
   <h1>Svelte Pokédex</h1>
-  <DropdownContainer title="What Pokémon did you see?" />
-  <SeenContainer title="Here's what you've seen so far:" />
+  <Container title="What Pokémon did you see?">
+    <Dropdown />
+  </Container>
+  <Container title="Here's what you've seen so far:" />
 </main>
 
 <style>

@@ -1,15 +1,15 @@
 <script lang="ts">
   import SectionHeader from './SectionHeader.svelte';
-  import Dropdown from './Dropdown.svelte';
 
   export let title = '';
 </script>
 
 <section>
   <SectionHeader content={title} />
-  <Dropdown />
+  <slot />
 </section>
 
+<!-- TODO receive color as prop -->
 <style>
   section {
     position: relative;
