@@ -4,6 +4,8 @@ A redo of my [react-pokedex](https://github.com/siuangie91/svelte-pokedex.git) p
 
 Scaffolded with [SvelteKit](https://kit.svelte.dev/).
 
+Uses [PokéAPI](https://pokeapi.co/docs/v2#pokedexes) to fetch the first 20 Gen 1 Pokemon.
+
 # 🛑 This is a Work-In-Progress 🛑
 
 # create-svelte
