@@ -1,6 +1,6 @@
 <script>
-  import Container from '../components/Container.svelte';
-  import Dropdown from '../components/Dropdown.svelte';
+  import Container from 'components/Container.svelte';
+  import Dropdown from 'components/Dropdown.svelte';
 </script>
 
 <main>
