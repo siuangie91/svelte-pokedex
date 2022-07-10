@@ -2,7 +2,7 @@
   import axios from 'axios';
   import { onMount } from 'svelte';
   import type { Pokemon } from 'src/types';
-  import { flattenEntries, capitalizeFirstLetter } from 'src/utils';
+  import { flattenEntries, capitalizeFirstLetter } from '../utils';
 
   let failedFetch = false;
   let pokemonEntries: PokemonAPI.Entry[] | [] = [];
