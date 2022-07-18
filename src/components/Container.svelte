@@ -10,7 +10,6 @@
   <slot />
 </section>
 
-<!-- TODO receive color as prop -->
 <style>
   section {
     position: relative;
