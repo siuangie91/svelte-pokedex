@@ -1,6 +1,6 @@
 // TODO test
 import axios from 'axios';
-import type { Pokemon } from 'src/types';
+import type { Pokemon, PokemonLookup } from 'src/types';
 
 const POKEAPI_GEN_1_URL = 'https://pokeapi.co/api/v2/pokedex/1';
 
@@ -42,9 +42,7 @@ export const flattenEntries = (entries: PokemonAPI.Entry[]): Pokemon[] => {
  * @returns
  */
 export const createLookupByName = (entries: Pokemon[]) => {
-  return entries.reduce<{
-    [key: string]: Pokemon;
-  }>((acc, { id, name, url }) => {
+  return entries.reduce<PokemonLookup>((acc, { id, name, url }) => {
     acc[name] = {
       id,
       name,

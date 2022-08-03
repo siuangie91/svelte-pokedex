@@ -5,6 +5,7 @@
 
   const entries: PokemonLookup = {};
 
+  // TODO test
   const handleAdd = (event: CustomEvent) => {
     const entry = event.detail;
     console.log('event', event.detail);
@@ -14,6 +15,7 @@
       entries[name] = entry;
     }
 
+    // TODO delete
     console.log('entries', entries);
   };
 </script>

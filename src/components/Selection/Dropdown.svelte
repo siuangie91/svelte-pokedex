@@ -26,6 +26,7 @@
 
   const dispatch = createEventDispatcher();
 
+  // TODO test
   const addToSeen = (name: string) => {
     const pokemon = pokemonLookup?.[name] || null;
     if (!pokemon) return;
