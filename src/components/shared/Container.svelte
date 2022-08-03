@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SectionHeader from 'components/SectionHeader.svelte';
+  import SectionHeader from 'components/shared/SectionHeader.svelte';
 
   export let title = '';
 </script>
