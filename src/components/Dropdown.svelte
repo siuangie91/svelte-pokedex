@@ -9,7 +9,7 @@
   onMount(async () => {
     const first20Entries = await getFirst20PokemonEntries();
 
-    if (typeof first20Entries === 'undefined') {
+    if (!first20Entries?.length) {
       failedFetch = true;
     } else {
       pokemonEntries = flattenEntries(first20Entries);
