@@ -29,7 +29,10 @@
   const dispatch = createEventDispatcher();
 
   const addToSeen = (name: string) => {
-    const { id, url } = pokemonLookup?.[name];
+    const pokemon = pokemonLookup?.[name] || null;
+    if (!pokemon) return;
+
+    const { id, url } = pokemon;
     dispatch('add', {
       id,
       name,
