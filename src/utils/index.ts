@@ -1,6 +1,6 @@
 // TODO test
 import axios from 'axios';
-import type { Pokemon } from 'src/types';
+import type { Pokemon, PokemonLookup } from 'src/types';
 
 const POKEAPI_GEN_1_URL = 'https://pokeapi.co/api/v2/pokedex/1';
 
@@ -29,11 +29,28 @@ export const getFirst20PokemonEntries = async () => {
 export const flattenEntries = (entries: PokemonAPI.Entry[]): Pokemon[] => {
   return entries.map(({ entry_number, pokemon_species }) => {
     return {
-      number: entry_number,
+      id: entry_number,
       name: pokemon_species.name,
       url: pokemon_species.url,
     };
   });
+};
+
+/**
+ * Creates a lookup table of Pokemon by name
+ * @param entries Pokemon entrees
+ * @returns
+ */
+export const createLookupByName = (entries: Pokemon[]) => {
+  return entries.reduce<PokemonLookup>((acc, { id, name, url }) => {
+    acc[name] = {
+      id,
+      name,
+      url,
+    };
+
+    return acc;
+  }, {});
 };
 
 /**
