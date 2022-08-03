@@ -1,14 +1,34 @@
-<script>
+<script lang="ts">
+  import type { Pokemon } from 'src/types';
   import Container from 'components/Container.svelte';
   import Dropdown from 'components/Dropdown.svelte';
+  import List from 'components/List.svelte';
+
+  const entries: {
+    [key: string]: Pokemon;
+  } = {};
 </script>
 
 <main>
   <h1>Svelte Pokédex</h1>
   <Container title="What Pokémon did you see?">
-    <Dropdown />
+    <Dropdown
+      on:add={event => {
+        const entry = event.detail;
+        console.log('event', event.detail);
+        const { name } = entry;
+
+        if (!entries[name]) {
+          entries[name] = entry;
+        }
+
+        console.log('entries', entries);
+      }}
+    />
   </Container>
-  <Container title="Here's what you've seen so far:" />
+  <Container title="Here's what you've seen so far:">
+    <List pokemons={entries} />
+  </Container>
 </main>
 
 <style>
