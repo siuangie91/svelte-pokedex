@@ -5,5 +5,5 @@ export interface Pokemon {
 }
 
 export interface PokemonLookup {
-  [key: string]: Pokemon;
+  [key: Pokemon['name']]: Pokemon;
 }
