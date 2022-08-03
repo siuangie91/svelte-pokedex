@@ -1,10 +1,14 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, createEventDispatcher } from 'svelte';
   import type { Pokemon } from 'src/types';
-  import { getFirst20PokemonEntries, flattenEntries, capitalizeFirstLetter } from 'utils';
+  import { getFirst20PokemonEntries, flattenEntries, createLookupByName, capitalizeFirstLetter } from 'utils';
 
   let failedFetch = false;
   let pokemonEntries: Pokemon[] | [] = [];
+
+  let pokemonLookup: {
+    [key: string]: Pokemon;
+  } = {};
 
   onMount(async () => {
     const first20Entries = await getFirst20PokemonEntries();
@@ -14,7 +18,26 @@
     } else {
       pokemonEntries = flattenEntries(first20Entries);
     }
+
+    pokemonLookup = createLookupByName(pokemonEntries);
   });
+
+  let selected = pokemonEntries[0]?.name;
+
+  $: console.log('selected', selected);
+
+  const dispatch = createEventDispatcher();
+
+  const addToSeen = (name: string) => {
+    const { id, url } = pokemonLookup?.[name];
+    dispatch('add', {
+      id,
+      name,
+      url,
+    });
+
+    pokemonEntries = pokemonEntries.filter(entry => entry.id !== id);
+  };
 </script>
 
 <!-- TODO style error -->
@@ -23,10 +46,12 @@
 {/if}
 
 <!-- TODO style dropdown-->
-<select>
-  {#each pokemonEntries as { number, name }}
+<select bind:value={selected}>
+  {#each pokemonEntries as { id, name }}
     <option value={name}>
-      {number}. {capitalizeFirstLetter(name)}
+      {id}. {capitalizeFirstLetter(name)}
     </option>
   {/each}
 </select>
+
+<button on:click={() => addToSeen(selected)}> + Add to List </button>
