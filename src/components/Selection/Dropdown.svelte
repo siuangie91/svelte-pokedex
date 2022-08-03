@@ -1,14 +1,12 @@
 <script lang="ts">
   import { onMount, createEventDispatcher } from 'svelte';
-  import type { Pokemon } from 'src/types';
+  import type { Pokemon, PokemonLookup } from 'src/types';
   import { getFirst20PokemonEntries, flattenEntries, createLookupByName, capitalizeFirstLetter } from 'utils';
 
   let failedFetch = false;
   let pokemonEntries: Pokemon[] | [] = [];
 
-  let pokemonLookup: {
-    [key: string]: Pokemon;
-  } = {};
+  let pokemonLookup: PokemonLookup = {};
 
   onMount(async () => {
     const first20Entries = await getFirst20PokemonEntries();

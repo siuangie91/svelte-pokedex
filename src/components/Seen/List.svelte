@@ -1,9 +1,7 @@
 <script lang="ts">
-  import type { Pokemon } from 'src/types';
+  import type { PokemonLookup } from 'src/types';
 
-  export let pokemons: {
-    [key: string]: Pokemon;
-  } = {};
+  export let pokemons: PokemonLookup = {};
 
   $: pokemonsList = Object.values(pokemons).sort((a, b) => a.id - b.id);
 </script>

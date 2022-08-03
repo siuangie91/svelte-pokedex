@@ -3,3 +3,7 @@ export interface Pokemon {
   name: string;
   url: string;
 }
+
+export interface PokemonLookup {
+  [key: string]: Pokemon;
+}

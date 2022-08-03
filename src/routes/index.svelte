@@ -1,11 +1,9 @@
 <script lang="ts">
-  import type { Pokemon } from 'src/types';
-  import Selection from 'src/components/Selection/index.svelte';
+  import type { PokemonLookup } from 'src/types';
+  import Selection from 'components/Selection/index.svelte';
   import Seen from 'components/Seen/index.svelte';
 
-  const entries: {
-    [key: string]: Pokemon;
-  } = {};
+  const entries: PokemonLookup = {};
 
   const handleAdd = (event: CustomEvent) => {
     const entry = event.detail;
