@@ -1,17 +1,21 @@
+export interface PokemonRaw {
+  id: number;
+  name: string;
+  forms: {
+    sprites: {
+      sprites: string;
+    }[];
+  }[];
+}
+
+export interface Specy {
+  pokemon: PokemonRaw[];
+}
+
 export interface Generation1 {
   gen1: {
     name: string;
-    species: {
-      pokemon: {
-        id: number;
-        name: string;
-        forms: {
-          sprites: {
-            sprites: string;
-          }[];
-        }[];
-      }[];
-    }[];
+    species: Specy[];
   };
 }
 

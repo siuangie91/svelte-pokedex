@@ -43,10 +43,10 @@
 
     pokemonLookup = createLookupByNameGql(gen1.species);
 
-    pokemonEntries = Object.entries(pokemonLookup).map(([name, data]) => data);
+    pokemonEntries = Object.entries(pokemonLookup).map(([, data]) => data);
   });
 
-  let selected = pokemonEntries[0]?.name || null;
+  let selected = pokemonEntries[0]?.name || '';
 
   $: console.log('selected', selected);
   $: console.log('lookup', pokemonLookup);
