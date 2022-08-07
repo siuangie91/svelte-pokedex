@@ -47,6 +47,10 @@
   $: capitalizedName = name && capitalizeFirstLetter(name);
 </script>
 
+<svelte:head>
+  <title>Svelte Pokédex - {capitalizedName}</title>
+</svelte:head>
+
 <!-- TODO refactor into separate components -->
 <main>
   {#if failedFetch || typeof id !== 'number'}
