@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onMount, createEventDispatcher } from 'svelte';
-  import type { Generation1, PokemonGQL, PokemonLookupGQL } from 'src/types';
+  import type { Generation1, PokemonGQL, PokemonLookup } from 'src/types';
   import first20Gen1Query from 'queries/first20Gen1Query';
   import { createLookupByNameGql, capitalizeFirstLetter } from 'utils';
   import { fetchGraphQL } from 'utils/network';
 
   let failedFetch = false;
 
-  let pokemonLookup: PokemonLookupGQL = {};
+  let pokemonLookup: PokemonLookup = {};
   let pokemonEntries: PokemonGQL[] = [];
 
   onMount(async () => {

@@ -54,6 +54,6 @@ export interface PokemonGQL {
   image: string;
 }
 
-export interface PokemonLookupGQL {
+export interface PokemonLookup {
   [key: PokemonGQL['name']]: PokemonGQL;
 }

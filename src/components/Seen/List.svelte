@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { PokemonLookupGQL } from 'src/types';
+  import type { PokemonLookup } from 'src/types';
   import { capitalizeFirstLetter } from 'utils';
 
-  export let pokemons: PokemonLookupGQL = {};
+  export let pokemons: PokemonLookup = {};
 
   $: pokemonsList = Object.values(pokemons).sort((a, b) => a.id - b.id);
 </script>
