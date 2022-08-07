@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
-  import { getPokemonById, capitalizeFirstLetter } from 'src/utils';
+  import { capitalizeFirstLetter } from 'utils';
+  import { getPokemonById } from 'utils/network';
 
   const id = Number($page.params.id);
 

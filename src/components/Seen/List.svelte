@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PokemonLookup } from 'src/types';
+  import { capitalizeFirstLetter } from 'utils';
 
   export let pokemons: PokemonLookup = {};
 
@@ -12,7 +13,7 @@
   <ul>
     {#each pokemonsList as { id, name }}
       <li>
-        <p><a href={`/pokemon/${id}`} target="_blank">{id}. {name}</a></p>
+        <p><a href={`/pokemon/${id}`} target="_blank">{id}. {capitalizeFirstLetter(name)}</a></p>
       </li>
     {/each}
   </ul>

@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount, createEventDispatcher } from 'svelte';
   import type { Pokemon, PokemonLookup } from 'src/types';
-  import { getFirst20PokemonEntries, flattenEntries, createLookupByName, capitalizeFirstLetter } from 'utils';
+  import { flattenEntries, createLookupByName, capitalizeFirstLetter } from 'utils';
+  import { getFirst20PokemonEntries } from 'utils/network';
 
   let failedFetch = false;
   let pokemonEntries: Pokemon[] | [] = [];
