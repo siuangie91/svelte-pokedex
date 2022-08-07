@@ -14,6 +14,7 @@ const config = {
       src: 'src/.',
       components: 'src/components',
       queries: 'src/queries',
+      network: 'src/network',
       utils: 'src/utils',
     },
   },

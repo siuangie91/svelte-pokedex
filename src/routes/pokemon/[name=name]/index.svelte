@@ -4,7 +4,7 @@
   import type { PokemonStats, Type } from 'src/types';
   import pokemonQuery from 'src/queries/pokemonQuery';
   import { capitalizeFirstLetter } from 'utils';
-  import { fetchGraphQL } from 'utils/network';
+  import { fetchGraphQL } from 'network';
 
   const { name } = $page.params;
 
@@ -46,6 +46,10 @@
 
   $: capitalizedName = name && capitalizeFirstLetter(name);
 </script>
+
+<svelte:head>
+  <title>Svelte Pokédex - {capitalizedName}</title>
+</svelte:head>
 
 <!-- TODO refactor into separate components -->
 <main>

@@ -3,7 +3,7 @@
   import type { Generation1, Summary, PokemonLookup } from 'src/types';
   import first20Gen1Query from 'queries/first20Gen1Query';
   import { createLookupByNameGql, capitalizeFirstLetter } from 'utils';
-  import { fetchGraphQL } from 'utils/network';
+  import { fetchGraphQL } from 'network';
 
   let failedFetch = false;
 
