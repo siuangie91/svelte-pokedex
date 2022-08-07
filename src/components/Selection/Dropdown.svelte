@@ -58,13 +58,9 @@
     const pokemon = pokemonLookup?.[name] || null;
     if (!pokemon) return;
 
-    const { id } = pokemon;
-    dispatch('add', {
-      id,
-      name,
-    });
+    dispatch('add', pokemon);
 
-    pokemonEntries = pokemonEntries.filter(entry => entry.id !== id);
+    pokemonEntries = pokemonEntries.filter(entry => entry.name !== name);
   };
 </script>
 
