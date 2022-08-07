@@ -40,28 +40,29 @@
   $: capitalizedName = name && capitalizeFirstLetter(name);
 </script>
 
+<!-- TODO refactor into separate components -->
 <main>
-  <h1>{id}. {capitalizedName}</h1>
-
   {#if failedFetch}
     <p>Oh no! We couldn't get that Pokémon!</p>
-  {/if}
+  {:else}
+    <h1>{id}. {capitalizedName}</h1>
 
-  {#if image}
-    <img src={image} alt={`${capitalizedName}`} />
-  {/if}
+    {#if image}
+      <img src={image} alt={`${capitalizedName}`} />
+    {/if}
 
-  {#if types.length}
-    <h2>Types</h2>
-    <ul>
-      {#each types as { type }}
-        <li>{type.name}</li>
-      {/each}
-    </ul>
-  {/if}
+    {#if types.length}
+      <h2>Types</h2>
+      <ul>
+        {#each types as { type }}
+          <li>{type.name}</li>
+        {/each}
+      </ul>
+    {/if}
 
-  {#if description}
-    <h2>Description</h2>
-    <p>{description}</p>
+    {#if description}
+      <h2>Description</h2>
+      <p>{description}</p>
+    {/if}
   {/if}
 </main>

@@ -1,5 +1,6 @@
 import type { ParamMatcher } from '@sveltejs/kit';
 
-export function match(param: ParamMatcher) {
-  return /[a-z]/.test(param.name);
-}
+// TODO test
+export const match: ParamMatcher = (param: string) => {
+  return /^[a-z]+$/.test(param);
+};
