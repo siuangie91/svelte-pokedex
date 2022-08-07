@@ -48,12 +48,12 @@ export interface PokemonStats {
   }[];
 }
 
-export interface PokemonBasic {
+export interface Summary {
   id: number;
   name: string;
   image: string;
 }
 
 export interface PokemonLookup {
-  [key: PokemonBasic['name']]: PokemonBasic;
+  [key: Summary['name']]: Summary;
 }

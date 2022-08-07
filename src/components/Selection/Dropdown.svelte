@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, createEventDispatcher } from 'svelte';
-  import type { Generation1, PokemonBasic, PokemonLookup } from 'src/types';
+  import type { Generation1, Summary, PokemonLookup } from 'src/types';
   import first20Gen1Query from 'queries/first20Gen1Query';
   import { createLookupByNameGql, capitalizeFirstLetter } from 'utils';
   import { fetchGraphQL } from 'utils/network';
@@ -8,7 +8,7 @@
   let failedFetch = false;
 
   let pokemonLookup: PokemonLookup = {};
-  let pokemonEntries: PokemonBasic[] = [];
+  let pokemonEntries: Summary[] = [];
 
   onMount(async () => {
     const result = await fetchGraphQL<{ data: Generation1 }>(first20Gen1Query, { id: 1 }, 'First20Gen1');
