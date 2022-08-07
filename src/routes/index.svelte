@@ -20,6 +20,10 @@
   };
 </script>
 
+<svelte:head>
+  <title>Svelte Pokédex</title>
+</svelte:head>
+
 <main>
   <h1>Svelte Pokédex</h1>
   <Selection entryAddedHandler={handleAdd} />
