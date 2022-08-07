@@ -40,10 +40,24 @@ declare namespace PokemonAPI {
     };
   }
 
+  interface Language {
+    name: string;
+    url: string;
+  }
+
   interface Pokemon {
     name: string;
     species: PokemonSpecies;
     sprites: Sprites;
     types: Type[];
+  }
+
+  interface FlavorTextEntry {
+    flavor_text: string;
+    language: Language;
+  }
+
+  interface Species {
+    flavor_text_entries: FlavorTextEntry[];
   }
 }

@@ -6,6 +6,7 @@ const POKEAPI_URL_BASE = 'https://pokeapi.co/api/v2';
 const POKEAPI_URLS = {
   GEN_1: `${POKEAPI_URL_BASE}/pokedex/1`,
   POKEMON: `${POKEAPI_URL_BASE}/pokemon/`,
+  SPECIES: `${POKEAPI_URL_BASE}/pokemon-species/`,
 };
 
 /**
@@ -24,9 +25,27 @@ export const getFirst20PokemonEntries = async () => {
   }
 };
 
+/**
+ * Fetch the Pokemon data by ID
+ * @param id
+ */
 export const getPokemonById = async (id: number) => {
   try {
     const { data } = await axios.get<PokemonAPI.Pokemon>(`${POKEAPI_URLS.POKEMON}${id}`);
+
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+/**
+ * Fetch the Pokemon's species data by ID
+ * @param id
+ */
+export const getSpeciesById = async (id: number) => {
+  try {
+    const { data } = await axios.get<PokemonAPI.Species>(`${POKEAPI_URLS.SPECIES}${id}`);
 
     return data;
   } catch (error) {
