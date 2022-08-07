@@ -38,6 +38,7 @@
   },
   "type": "module",
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "gql-tag": "^1.0.1"
   }
 }
