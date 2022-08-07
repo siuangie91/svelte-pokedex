@@ -10,9 +10,9 @@
   <p>You haven't seen any Pokémon yet!</p>
 {:else}
   <ul>
-    {#each pokemonsList as { id, name, url }}
+    {#each pokemonsList as { id, name }}
       <li>
-        <p><a href={url} target="_blank">{id}. {name}</a></p>
+        <p><a href={`/pokemon/${id}`} target="_blank">{id}. {name}</a></p>
       </li>
     {/each}
   </ul>
