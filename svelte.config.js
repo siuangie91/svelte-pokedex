@@ -13,6 +13,7 @@ const config = {
     alias: {
       src: 'src/.',
       components: 'src/components',
+      queries: 'src/queries',
       utils: 'src/utils',
     },
   },
