@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { PokemonLookupGQL } from 'src/types';
+  import type { PokemonLookup } from 'src/types';
   import Selection from 'components/Selection/index.svelte';
   import Seen from 'components/Seen/index.svelte';
 
-  const entries: PokemonLookupGQL = {};
+  const entries: PokemonLookup = {};
 
   // TODO test
   const handleAdd = (event: CustomEvent) => {
