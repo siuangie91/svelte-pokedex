@@ -13,7 +13,7 @@
   <ul>
     {#each pokemonsList as { id, name }}
       <li>
-        <p><a href={`/pokemon/${id}`} target="_blank">{id}. {capitalizeFirstLetter(name)}</a></p>
+        <p><a href={`/pokemon/${name}`} target="_blank">{id}. {capitalizeFirstLetter(name)}</a></p>
       </li>
     {/each}
   </ul>

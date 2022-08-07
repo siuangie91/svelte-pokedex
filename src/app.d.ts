@@ -46,6 +46,7 @@ declare namespace PokemonAPI {
   }
 
   interface Pokemon {
+    id: number;
     name: string;
     species: PokemonSpecies;
     sprites: Sprites;

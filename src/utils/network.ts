@@ -26,12 +26,12 @@ export const getFirst20PokemonEntries = async () => {
 };
 
 /**
- * Fetch the Pokemon data by ID
- * @param id
+ * Fetch the Pokemon data by name
+ * @param name
  */
-export const getPokemonById = async (id: number) => {
+export const getPokemonByName = async (name: string) => {
   try {
-    const { data } = await axios.get<PokemonAPI.Pokemon>(`${POKEAPI_URLS.POKEMON}${id}`);
+    const { data } = await axios.get<PokemonAPI.Pokemon>(`${POKEAPI_URLS.POKEMON}${name}`);
 
     return data;
   } catch (error) {
@@ -40,12 +40,12 @@ export const getPokemonById = async (id: number) => {
 };
 
 /**
- * Fetch the Pokemon's species data by ID
- * @param id
+ * Fetch the Pokemon's species data by name
+ * @param name
  */
-export const getSpeciesById = async (id: number) => {
+export const getSpeciesByName = async (name: string) => {
   try {
-    const { data } = await axios.get<PokemonAPI.Species>(`${POKEAPI_URLS.SPECIES}${id}`);
+    const { data } = await axios.get<PokemonAPI.Species>(`${POKEAPI_URLS.SPECIES}${name}`);
 
     return data;
   } catch (error) {

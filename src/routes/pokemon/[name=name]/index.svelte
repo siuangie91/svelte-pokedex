@@ -2,32 +2,32 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
   import { capitalizeFirstLetter } from 'utils';
-  import { getPokemonById, getSpeciesById } from 'utils/network';
+  import { getPokemonByName, getSpeciesByName } from 'utils/network';
 
-  const id = Number($page.params.id);
+  const { name } = $page.params;
 
   let failedFetch = false;
 
-  let name: string = '';
+  let id: number | null = null;
   let image: string = '';
   let types: PokemonAPI.Type[] = [];
   let description: string = '';
 
   onMount(async () => {
-    const pokemon = await getPokemonById(id);
+    const pokemon = await getPokemonByName(name);
     if (!pokemon) {
       failedFetch = true;
       return;
     }
 
-    const species = await getSpeciesById(id);
+    const species = await getSpeciesByName(name);
     if (!species) {
       failedFetch = true;
       return;
     }
 
+    ({ types, id } = pokemon);
     const { sprites } = pokemon;
-    ({ types, name } = pokemon);
 
     image = sprites.other.dream_world.front_default;
 
@@ -41,7 +41,7 @@
 </script>
 
 <main>
-  <h1>{id}: {capitalizedName}</h1>
+  <h1>{id}. {capitalizedName}</h1>
 
   {#if failedFetch}
     <p>Oh no! We couldn't get that Pokémon!</p>
