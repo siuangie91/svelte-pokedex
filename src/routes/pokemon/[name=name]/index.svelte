@@ -1,8 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
+  import type { PokemonStats, Type } from 'src/types';
+  import pokemonQuery from 'src/queries/pokemonQuery';
   import { capitalizeFirstLetter } from 'utils';
-  import { getPokemonByName, getSpeciesByName } from 'utils/network';
+  import { fetchGraphQL } from 'utils/network';
 
   const { name } = $page.params;
 
@@ -10,31 +12,36 @@
 
   let id: number | null = null;
   let image: string = '';
-  let types: PokemonAPI.Type[] = [];
+  let types: Type[] = [];
   let description: string = '';
+  let evolution: string[] = [];
 
   onMount(async () => {
-    const pokemon = await getPokemonByName(name);
-    if (!pokemon) {
-      failedFetch = true;
-      return;
+    const result = await fetchGraphQL<{ data: PokemonStats }>(
+      pokemonQuery,
+      {
+        id: name,
+      },
+      'Pokemon',
+    );
+
+    if (!result?.data?.pokemon?.length) {
+      throw new Error('Could not fetch pokemon stats');
     }
 
-    const species = await getSpeciesByName(name);
-    if (!species) {
-      failedFetch = true;
-      return;
-    }
+    const { data } = result;
+    const { pokemon } = data;
 
-    ({ types, id } = pokemon);
-    const { sprites } = pokemon;
+    ({ id, types } = pokemon[0]);
+    const { species, images } = pokemon[0];
 
-    image = sprites.other.dream_world.front_default;
+    image = JSON.parse(images[0].sprites).front_default;
 
-    description = species.flavor_text_entries
-      .filter(({ language }) => language.name === 'en')
-      .map(({ flavor_text }) => flavor_text)
-      .at(-1)!;
+    const { descriptions, evolutionChain } = species;
+
+    description = descriptions.map(({ text }) => text).join(' ');
+
+    evolution = evolutionChain.chain.map(({ name }) => name);
   });
 
   $: capitalizedName = name && capitalizeFirstLetter(name);
@@ -42,7 +49,7 @@
 
 <!-- TODO refactor into separate components -->
 <main>
-  {#if failedFetch}
+  {#if failedFetch || typeof id !== 'number'}
     <p>Oh no! We couldn't get that Pokémon!</p>
   {:else}
     <h1>{id}. {capitalizedName}</h1>
@@ -55,9 +62,18 @@
       <h2>Types</h2>
       <ul>
         {#each types as { type }}
-          <li>{type.name}</li>
+          <li>{capitalizeFirstLetter(type.name)}</li>
         {/each}
       </ul>
+    {/if}
+
+    {#if evolution.length}
+      <h2>Evolution</h2>
+      <ol>
+        {#each evolution as name}
+          <li>{capitalizeFirstLetter(name)}</li>
+        {/each}
+      </ol>
     {/if}
 
     {#if description}

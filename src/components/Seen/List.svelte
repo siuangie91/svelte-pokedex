@@ -11,9 +11,14 @@
   <p>You haven't seen any Pokémon yet!</p>
 {:else}
   <ul>
-    {#each pokemonsList as { id, name }}
+    {#each pokemonsList as { id, name, image }}
       <li>
-        <p><a href={`/pokemon/${name}`} target="_blank">{id}. {capitalizeFirstLetter(name)}</a></p>
+        <p>
+          <a href={`/pokemon/${name}`} target="_blank">
+            <span>{id}. {capitalizeFirstLetter(name)}</span>
+            <img src={image} alt={name} />
+          </a>
+        </p>
       </li>
     {/each}
   </ul>

@@ -1,8 +1,56 @@
-export interface Pokemon {
+interface Identifiers {
   id: number;
   name: string;
 }
 
+interface Specy {
+  pokemon: {
+    id: number;
+    name: string;
+    forms: {
+      sprites: {
+        sprites: string;
+      }[];
+    }[];
+  }[];
+}
+
+export interface Generation1 {
+  gen1: {
+    name: string;
+    species: Specy[];
+  };
+}
+
+export interface Type {
+  type: {
+    name: string;
+  };
+}
+export interface PokemonStats {
+  pokemon: {
+    id: number;
+    name: string;
+    types: Type[];
+    species: {
+      descriptions: {
+        id: number;
+        text: string;
+      }[];
+      evolutionChain: {
+        chain: Identifiers[];
+      };
+    };
+    images: {
+      sprites: string;
+    }[];
+  }[];
+}
+
+export interface Summary extends Identifiers {
+  image: string;
+}
+
 export interface PokemonLookup {
-  [key: Pokemon['name']]: Pokemon;
+  [key: Summary['name']]: Summary;
 }

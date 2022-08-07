@@ -1,29 +1,36 @@
 <script lang="ts">
   import { onMount, createEventDispatcher } from 'svelte';
-  import type { Pokemon, PokemonLookup } from 'src/types';
-  import { flattenEntries, createLookupByName, capitalizeFirstLetter } from 'utils';
-  import { getFirst20PokemonEntries } from 'utils/network';
+  import type { Generation1, Summary, PokemonLookup } from 'src/types';
+  import first20Gen1Query from 'queries/first20Gen1Query';
+  import { createLookupByNameGql, capitalizeFirstLetter } from 'utils';
+  import { fetchGraphQL } from 'utils/network';
 
   let failedFetch = false;
-  let pokemonEntries: Pokemon[] | [] = [];
 
   let pokemonLookup: PokemonLookup = {};
+  let pokemonEntries: Summary[] = [];
 
   onMount(async () => {
-    const first20Entries = await getFirst20PokemonEntries();
+    const result = await fetchGraphQL<{ data: Generation1 }>(first20Gen1Query, { id: 1 }, 'First20Gen1');
 
-    if (!first20Entries?.length) {
+    if (!result?.data?.gen1?.species?.length) {
       failedFetch = true;
-    } else {
-      pokemonEntries = flattenEntries(first20Entries);
+      return;
     }
+    const { data } = result;
+    const { gen1 } = data;
 
-    pokemonLookup = createLookupByName(pokemonEntries);
+    console.log('gen1', gen1);
+
+    pokemonLookup = createLookupByNameGql(gen1.species);
+
+    pokemonEntries = Object.entries(pokemonLookup).map(([, data]) => data);
   });
 
-  let selected = pokemonEntries[0]?.name;
+  let selected = pokemonEntries[0]?.name || '';
 
   $: console.log('selected', selected);
+  $: console.log('lookup', pokemonLookup);
 
   const dispatch = createEventDispatcher();
 
@@ -32,13 +39,9 @@
     const pokemon = pokemonLookup?.[name] || null;
     if (!pokemon) return;
 
-    const { id } = pokemon;
-    dispatch('add', {
-      id,
-      name,
-    });
+    dispatch('add', pokemon);
 
-    pokemonEntries = pokemonEntries.filter(entry => entry.id !== id);
+    pokemonEntries = pokemonEntries.filter(entry => entry.name !== name);
   };
 </script>
 

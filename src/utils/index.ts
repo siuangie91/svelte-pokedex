@@ -1,32 +1,18 @@
 // TODO test
-import type { Pokemon, PokemonLookup } from 'src/types';
+import type { Specy, PokemonLookupGQL } from 'src/types';
 
-/**
- * Takes the values `pokemon_entries` and returns
- * an array of flattened `Pokemon` objects
- * @param entries
- * @returns
- */
-export const flattenEntries = (entries: PokemonAPI.Entry[]): Pokemon[] => {
-  return entries.map(({ entry_number, pokemon_species }) => {
-    return {
-      id: entry_number,
-      name: pokemon_species.name,
-      url: pokemon_species.url,
-    };
-  });
-};
+// todo jsdoc
+export const createLookupByNameGql = (entries: Specy[]) => {
+  return entries.reduce<PokemonLookupGQL>((acc, entry) => {
+    const { pokemon } = entry;
+    const { id, name, forms } = pokemon[0];
 
-/**
- * Creates a lookup table of Pokemon by name
- * @param entries Pokemon entrees
- * @returns
- */
-export const createLookupByName = (entries: Pokemon[]) => {
-  return entries.reduce<PokemonLookup>((acc, { id, name }) => {
+    const { front_default: image } = JSON.parse(forms[0].sprites[0].sprites);
+
     acc[name] = {
       id,
       name,
+      image,
     };
 
     return acc;
