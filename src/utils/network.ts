@@ -9,6 +9,29 @@ const POKEAPI_URLS = {
   SPECIES: `${POKEAPI_URL_BASE}/pokemon-species/`,
 };
 
+const POKEAPI_GQL_URL = 'https://beta.pokeapi.co/graphql/v1beta';
+
+export const fetchGraphQL = async <ResponseShape>(
+  query: string,
+  variables: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: number | string]: any;
+  },
+  operationName: string,
+) => {
+  try {
+    const { data } = await axios.post<ResponseShape>(POKEAPI_GQL_URL, {
+      query,
+      variables,
+      operationName,
+    });
+
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 /**
  * Fetches the first 20 entries for Gen 1 pokemon from PokeAPI
  * @returns

@@ -1,29 +1,55 @@
 <script lang="ts">
+  import gql from 'gql-tag';
   import { onMount, createEventDispatcher } from 'svelte';
-  import type { Pokemon, PokemonLookup } from 'src/types';
-  import { flattenEntries, createLookupByName, capitalizeFirstLetter } from 'utils';
-  import { getFirst20PokemonEntries } from 'utils/network';
+  import type { Generation1, PokemonGQL, PokemonLookupGQL } from 'src/types';
+  import { createLookupByNameGql, capitalizeFirstLetter } from 'utils';
+  import { fetchGraphQL } from 'utils/network';
 
   let failedFetch = false;
-  let pokemonEntries: Pokemon[] | [] = [];
 
-  let pokemonLookup: PokemonLookup = {};
+  let pokemonLookup: PokemonLookupGQL = {};
+  let pokemonEntries: PokemonGQL[] = [];
+
+  const first20Gen1Query = gql`
+    query First20Gen1($id: Int!) {
+      gen1: pokemon_v2_generation_by_pk(id: $id) {
+        name
+        species: pokemon_v2_pokemonspecies(limit: 20, order_by: { id: asc }) {
+          pokemon: pokemon_v2_pokemons(limit: 1) {
+            id
+            name
+            forms: pokemon_v2_pokemonforms {
+              sprites: pokemon_v2_pokemonformsprites {
+                sprites
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
 
   onMount(async () => {
-    const first20Entries = await getFirst20PokemonEntries();
+    const result = await fetchGraphQL<{ data: Generation1 }>(first20Gen1Query, { id: 1 }, 'First20Gen1');
 
-    if (!first20Entries?.length) {
+    if (!result?.data?.gen1?.species?.length) {
       failedFetch = true;
-    } else {
-      pokemonEntries = flattenEntries(first20Entries);
+      return;
     }
+    const { data } = result;
+    const { gen1 } = data;
 
-    pokemonLookup = createLookupByName(pokemonEntries);
+    console.log('gen1', gen1);
+
+    pokemonLookup = createLookupByNameGql(gen1.species);
+
+    pokemonEntries = Object.entries(pokemonLookup).map(([name, data]) => data);
   });
 
-  let selected = pokemonEntries[0]?.name;
+  let selected = pokemonEntries[0]?.name || null;
 
   $: console.log('selected', selected);
+  $: console.log('lookup', pokemonLookup);
 
   const dispatch = createEventDispatcher();
 
