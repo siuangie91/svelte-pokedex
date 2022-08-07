@@ -11,8 +11,7 @@ const pokemonQuery = gql`
         }
       }
       species: pokemon_v2_pokemonspecy {
-        name
-        description: pokemon_v2_pokemonspeciesflavortexts(
+        descriptions: pokemon_v2_pokemonspeciesflavortexts(
           where: {
             language_id: { _eq: 9 } # en-us
           }
@@ -22,16 +21,11 @@ const pokemonQuery = gql`
           id
           flavor_text
         }
-        evolution_chain: pokemon_v2_evolutionchain {
+        evolutionChain: pokemon_v2_evolutionchain {
           chain: pokemon_v2_pokemonspecies {
             id
             name
           }
-        }
-      }
-      pokemon_type: pokemon_v2_pokemontypes {
-        type: pokemon_v2_type {
-          name
         }
       }
       images: pokemon_v2_pokemonsprites {

@@ -19,6 +19,35 @@ export interface Generation1 {
   };
 }
 
+export interface Type {
+  type: {
+    name: string;
+  };
+}
+
+export interface PokemonStats {
+  pokemon: {
+    id: number;
+    name: string;
+    types: Type[];
+    species: {
+      descriptions: {
+        id: number;
+        flavor_text: string;
+      }[];
+      evolutionChain: {
+        chain: {
+          id: number;
+          name: string;
+        }[];
+      };
+    };
+    images: {
+      sprites: string;
+    }[];
+  }[];
+}
+
 export interface PokemonGQL {
   id: number;
   name: string;
