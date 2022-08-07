@@ -39,7 +39,14 @@
 
     const { descriptions, evolutionChain } = species;
 
-    description = descriptions.map(({ text }) => text).join(' ');
+    const descriptionSet = new Set<string>();
+    descriptions.forEach(({ text }) => {
+      descriptionSet.add(text);
+    });
+
+    descriptionSet.forEach(desc => {
+      description += ` ${desc}`;
+    });
 
     evolution = evolutionChain.chain.map(({ name }) => name);
   });
