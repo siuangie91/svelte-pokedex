@@ -2,7 +2,12 @@
 import axios from 'axios';
 import type { Pokemon, PokemonLookup } from 'src/types';
 
-const POKEAPI_GEN_1_URL = 'https://pokeapi.co/api/v2/pokedex/1';
+const POKEAPI_URL_BASE = 'https://pokeapi.co/api/v2';
+
+const POKEAPI_URLS = {
+  GEN_1: `${POKEAPI_URL_BASE}/pokedex/1`,
+  POKEMON: `${POKEAPI_URL_BASE}/pokemon/`,
+};
 
 /**
  * Fetches the first 20 entries for Gen 1 pokemon from PokeAPI
@@ -10,7 +15,7 @@ const POKEAPI_GEN_1_URL = 'https://pokeapi.co/api/v2/pokedex/1';
  */
 export const getFirst20PokemonEntries = async () => {
   try {
-    const { data } = await axios.get<PokemonAPI.ApiResponse>(POKEAPI_GEN_1_URL);
+    const { data } = await axios.get<PokemonAPI.Generation>(POKEAPI_URLS.GEN_1);
 
     const { pokemon_entries } = data;
 
@@ -42,11 +47,10 @@ export const flattenEntries = (entries: PokemonAPI.Entry[]): Pokemon[] => {
  * @returns
  */
 export const createLookupByName = (entries: Pokemon[]) => {
-  return entries.reduce<PokemonLookup>((acc, { id, name, url }) => {
+  return entries.reduce<PokemonLookup>((acc, { id, name }) => {
     acc[name] = {
       id,
       name,
-      url,
     };
 
     return acc;
@@ -62,4 +66,14 @@ export const capitalizeFirstLetter = (str: string) => {
   const firstLetter = str[0];
   const rest = str.slice(1);
   return `${firstLetter.toUpperCase()}${rest}`;
+};
+
+export const getPokemonById = async (id: number) => {
+  try {
+    const { data } = await axios.get<PokemonAPI.Pokemon>(`${POKEAPI_URLS.POKEMON}${id}`);
+
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 };

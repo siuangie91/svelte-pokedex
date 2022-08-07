@@ -31,11 +31,10 @@
     const pokemon = pokemonLookup?.[name] || null;
     if (!pokemon) return;
 
-    const { id, url } = pokemon;
+    const { id } = pokemon;
     dispatch('add', {
       id,
       name,
-      url,
     });
 
     pokemonEntries = pokemonEntries.filter(entry => entry.id !== id);
