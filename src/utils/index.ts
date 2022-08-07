@@ -1,24 +1,5 @@
 // TODO test
-import axios from 'axios';
 import type { Pokemon, PokemonLookup } from 'src/types';
-
-const POKEAPI_GEN_1_URL = 'https://pokeapi.co/api/v2/pokedex/1';
-
-/**
- * Fetches the first 20 entries for Gen 1 pokemon from PokeAPI
- * @returns
- */
-export const getFirst20PokemonEntries = async () => {
-  try {
-    const { data } = await axios.get<PokemonAPI.ApiResponse>(POKEAPI_GEN_1_URL);
-
-    const { pokemon_entries } = data;
-
-    return pokemon_entries.length ? pokemon_entries.slice(0, 20) : [];
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 /**
  * Takes the values `pokemon_entries` and returns
@@ -42,11 +23,10 @@ export const flattenEntries = (entries: PokemonAPI.Entry[]): Pokemon[] => {
  * @returns
  */
 export const createLookupByName = (entries: Pokemon[]) => {
-  return entries.reduce<PokemonLookup>((acc, { id, name, url }) => {
+  return entries.reduce<PokemonLookup>((acc, { id, name }) => {
     acc[name] = {
       id,
       name,
-      url,
     };
 
     return acc;

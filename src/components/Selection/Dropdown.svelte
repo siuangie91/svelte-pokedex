@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount, createEventDispatcher } from 'svelte';
   import type { Pokemon, PokemonLookup } from 'src/types';
-  import { getFirst20PokemonEntries, flattenEntries, createLookupByName, capitalizeFirstLetter } from 'utils';
+  import { flattenEntries, createLookupByName, capitalizeFirstLetter } from 'utils';
+  import { getFirst20PokemonEntries } from 'utils/network';
 
   let failedFetch = false;
   let pokemonEntries: Pokemon[] | [] = [];
@@ -31,11 +32,10 @@
     const pokemon = pokemonLookup?.[name] || null;
     if (!pokemon) return;
 
-    const { id, url } = pokemon;
+    const { id } = pokemon;
     dispatch('add', {
       id,
       name,
-      url,
     });
 
     pokemonEntries = pokemonEntries.filter(entry => entry.id !== id);

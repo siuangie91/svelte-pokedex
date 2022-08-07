@@ -21,7 +21,44 @@ declare namespace PokemonAPI {
     pokemon_species: PokemonSpecies;
   }
 
-  interface ApiResponse {
+  interface Generation {
     pokemon_entries: Entry[];
+  }
+
+  interface Sprites {
+    other: {
+      dream_world: {
+        front_default: string;
+      };
+    };
+  }
+
+  interface Type {
+    type: {
+      slot: number;
+      name: string;
+    };
+  }
+
+  interface Language {
+    name: string;
+    url: string;
+  }
+
+  interface Pokemon {
+    id: number;
+    name: string;
+    species: PokemonSpecies;
+    sprites: Sprites;
+    types: Type[];
+  }
+
+  interface FlavorTextEntry {
+    flavor_text: string;
+    language: Language;
+  }
+
+  interface Species {
+    flavor_text_entries: FlavorTextEntry[];
   }
 }
