@@ -19,7 +19,7 @@ const pokemonQuery = gql`
           limit: 3
         ) {
           id
-          flavor_text
+          text: flavor_text
         }
         evolutionChain: pokemon_v2_evolutionchain {
           chain: pokemon_v2_pokemonspecies {

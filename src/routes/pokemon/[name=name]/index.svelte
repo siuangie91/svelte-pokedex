@@ -39,7 +39,7 @@
 
     const { descriptions, evolutionChain } = species;
 
-    description = descriptions.map(({ flavor_text }) => flavor_text).join(' ');
+    description = descriptions.map(({ text }) => text).join(' ');
 
     evolution = evolutionChain.chain.map(({ name }) => name);
   });
@@ -49,7 +49,7 @@
 
 <!-- TODO refactor into separate components -->
 <main>
-  {#if failedFetch}
+  {#if failedFetch || typeof id !== 'number'}
     <p>Oh no! We couldn't get that Pokémon!</p>
   {:else}
     <h1>{id}. {capitalizedName}</h1>

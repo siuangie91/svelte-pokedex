@@ -1,15 +1,18 @@
-export interface PokemonRaw {
+interface Identifiers {
   id: number;
   name: string;
-  forms: {
-    sprites: {
-      sprites: string;
-    }[];
-  }[];
 }
 
-export interface Specy {
-  pokemon: PokemonRaw[];
+interface Specy {
+  pokemon: {
+    id: number;
+    name: string;
+    forms: {
+      sprites: {
+        sprites: string;
+      }[];
+    }[];
+  }[];
 }
 
 export interface Generation1 {
@@ -24,7 +27,6 @@ export interface Type {
     name: string;
   };
 }
-
 export interface PokemonStats {
   pokemon: {
     id: number;
@@ -33,13 +35,10 @@ export interface PokemonStats {
     species: {
       descriptions: {
         id: number;
-        flavor_text: string;
+        text: string;
       }[];
       evolutionChain: {
-        chain: {
-          id: number;
-          name: string;
-        }[];
+        chain: Identifiers[];
       };
     };
     images: {
@@ -48,9 +47,7 @@ export interface PokemonStats {
   }[];
 }
 
-export interface Summary {
-  id: number;
-  name: string;
+export interface Summary extends Identifiers {
   image: string;
 }
 
