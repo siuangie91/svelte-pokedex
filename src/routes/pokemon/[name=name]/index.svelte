@@ -64,8 +64,12 @@
 
 <!-- TODO refactor into separate components -->
 <main>
-  {#if failedFetch || typeof id !== 'number'}
+  {#if failedFetch}
     <p>Oh no! We couldn't get that Pokémon!</p>
+  {/if}
+
+  {#if typeof id !== 'number'}
+    <div />
   {:else}
     <Card {id} name={capitalizedName} {image} {types} {evolution} {description} />
   {/if}
