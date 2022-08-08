@@ -6,6 +6,8 @@
   import { capitalizeFirstLetter } from 'utils';
   import { fetchGraphQL } from 'network';
 
+  import Card from 'components/Card/index.svelte';
+
   const { name } = $page.params;
 
   let failedFetch = false;
@@ -15,6 +17,7 @@
   let types: Type[] = [];
   let description: string = '';
   let evolution: string[] = [];
+  let capitalizedName: string = '';
 
   onMount(async () => {
     const result = await fetchGraphQL<{ data: PokemonStats }>(
@@ -26,6 +29,7 @@
     );
 
     if (!result?.data?.pokemon?.length) {
+      failedFetch = true;
       throw new Error('Could not fetch pokemon stats');
     }
 
@@ -51,7 +55,7 @@
     evolution = evolutionChain.chain.map(({ name }) => name);
   });
 
-  $: capitalizedName = name && capitalizeFirstLetter(name);
+  capitalizedName = name && capitalizeFirstLetter(name);
 </script>
 
 <svelte:head>
@@ -60,36 +64,13 @@
 
 <!-- TODO refactor into separate components -->
 <main>
-  {#if failedFetch || typeof id !== 'number'}
+  {#if failedFetch}
     <p>Oh no! We couldn't get that Pokémon!</p>
+  {/if}
+
+  {#if typeof id !== 'number'}
+    <div />
   {:else}
-    <h1>{id}. {capitalizedName}</h1>
-
-    {#if image}
-      <img src={image} alt={`${capitalizedName}`} />
-    {/if}
-
-    {#if types.length}
-      <h2>Types</h2>
-      <ul>
-        {#each types as { type }}
-          <li>{capitalizeFirstLetter(type.name)}</li>
-        {/each}
-      </ul>
-    {/if}
-
-    {#if evolution.length}
-      <h2>Evolution</h2>
-      <ol>
-        {#each evolution as name}
-          <li>{capitalizeFirstLetter(name)}</li>
-        {/each}
-      </ol>
-    {/if}
-
-    {#if description}
-      <h2>Description</h2>
-      <p>{description}</p>
-    {/if}
+    <Card {id} name={capitalizedName} {image} {types} {evolution} {description} />
   {/if}
 </main>
