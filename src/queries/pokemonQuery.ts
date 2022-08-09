@@ -1,6 +1,4 @@
-import GqlTag from 'gql-tag';
-// import gql from 'graphql-tag';
-const gql = (GqlTag as any).default || GqlTag;
+import gql from './utils/gqlTag';
 
 const pokemonQuery = gql`
   query Pokemon($id: String!) {
