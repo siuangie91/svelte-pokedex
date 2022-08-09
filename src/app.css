@@ -5,8 +5,8 @@
 @layer base {
   html {
     background: url(http://pngimg.com/uploads/pokeball/pokeball_PNG8.png) no-repeat;
-    background-position: center center;
-    background-size: contain;
+    background-position: top center;
+    background-size: 100vh;
     min-height: 100vh;
   }
   body {
