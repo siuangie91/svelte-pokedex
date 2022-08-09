@@ -23,3 +23,24 @@
     {/each}
   </ul>
 {/if}
+
+<style lang="postcss">
+  li {
+    @apply rounded;
+    @apply bg-white/80;
+    @apply px-2;
+    @apply py-1;
+    @apply mb-2;
+  }
+
+  a {
+    @apply flex;
+    @apply flex-row;
+    @apply justify-between;
+  }
+
+  span {
+    @apply inline-flex;
+    @apply items-center;
+  }
+</style>

@@ -24,35 +24,23 @@
   <title>Svelte Pokédex</title>
 </svelte:head>
 
-<main>
-  <h1>Svelte Pokédex</h1>
+<h1>Svelte Pokédex</h1>
+<div>
   <Selection entryAddedHandler={handleAdd} />
   <Seen {entries} />
-</main>
+</div>
 
-<style>
-  :global(*) {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  :global(html) {
-    background: url(http://pngimg.com/uploads/pokeball/pokeball_PNG8.png) no-repeat;
-    background-position: center center;
-    background-size: contain;
-  }
-
-  :global(body) {
-    background: rgba(255, 255, 255, 0.5);
-  }
-
-  main {
-    padding: 10px;
-    text-align: center;
-  }
-
+<style lang="postcss">
   h1 {
-    margin: 10px auto;
+    @apply text-center;
+  }
+
+  @media (min-width: 640px) {
+    div {
+      @apply grid;
+      @apply grid-cols-2;
+      @apply gap-4;
+      min-height: 50vh;
+    }
   }
 </style>
