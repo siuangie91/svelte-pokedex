@@ -10,6 +10,8 @@
   let pokemonLookup: PokemonLookup = {};
   let pokemonEntries: Summary[] = [];
 
+  let allSeen = false;
+
   onMount(async () => {
     const result = await fetchGraphQL<{ data: Generation1 }>(first20Gen1Query, { id: 1 }, 'First20Gen1');
 
@@ -42,6 +44,9 @@
     dispatch('add', pokemon);
 
     pokemonEntries = pokemonEntries.filter(entry => entry.name !== name);
+    if (!pokemonEntries.length) {
+      allSeen = true;
+    }
   };
 </script>
 
@@ -51,15 +56,21 @@
 {/if}
 
 <!-- TODO style dropdown-->
-<select bind:value={selected}>
-  {#each pokemonEntries as { id, name }}
-    <option value={name}>
-      {id}. {capitalizeFirstLetter(name)}
-    </option>
-  {/each}
-</select>
+{#if pokemonEntries.length}
+  <select bind:value={selected}>
+    {#each pokemonEntries as { id, name }}
+      <option value={name}>
+        {id}. {capitalizeFirstLetter(name)}
+      </option>
+    {/each}
+  </select>
 
-<button on:click={() => addToSeen(selected)}> + Add to List </button>
+  <button on:click={() => addToSeen(selected)}> + Add to List </button>
+{/if}
+
+{#if allSeen}
+  <p>Wow, you've seen all the Pokémon!</p>
+{/if}
 
 <style lang="postcss">
   select,
