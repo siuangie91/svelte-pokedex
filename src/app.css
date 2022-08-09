@@ -14,18 +14,17 @@
     background: rgba(255, 255, 255, 0.5);
   }
   h1 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    @apply my-4;
     @apply text-3xl;
     @apply font-bold;
   }
   h2 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    @apply my-3;
     @apply text-xl;
     @apply font-bold;
   }
   main {
-    padding: 10px;
+    @apply px-4;
+    @apply py-4;
   }
 }

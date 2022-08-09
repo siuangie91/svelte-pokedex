@@ -60,3 +60,20 @@
 </select>
 
 <button on:click={() => addToSeen(selected)}> + Add to List </button>
+
+<style lang="postcss">
+  select,
+  button {
+    @apply block;
+    @apply w-full;
+    @apply h-12;
+    @apply mb-2;
+    @apply px-2;
+    @apply rounded;
+  }
+
+  button {
+    @apply bg-cyan-800;
+    @apply text-white;
+  }
+</style>

@@ -11,22 +11,13 @@
 </section>
 
 <!-- TODO receive color as prop -->
-<style>
+<style lang="postcss">
   section {
-    position: relative;
-    min-height: 150px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-
-    background: #ccc;
+    min-height: 50vh;
+    @apply px-4;
+    @apply py-4;
+    @apply rounded-lg;
+    @apply bg-slate-200/90;
+    @apply shadow-lg;
   }
-
-  /* @media screen and (min-width: 500px) {
-    section {
-      float: left;
-      width: calc(50% - 25px);
-      min-height: 50vh;
-    }
-  } */
 </style>
