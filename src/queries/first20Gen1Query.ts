@@ -1,4 +1,4 @@
-import gql from 'gql-tag';
+import gql from './utils/gqlTag';
 
 const first20Gen1Query = gql`
   query First20Gen1($id: Int!) {
