@@ -1,4 +1,6 @@
-import gql from 'gql-tag';
+import GqlTag from 'gql-tag';
+// import gql from 'graphql-tag';
+const gql = (GqlTag as any).default || GqlTag;
 
 const first20Gen1Query = gql`
   query First20Gen1($id: Int!) {
