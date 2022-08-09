@@ -25,19 +25,22 @@
 </svelte:head>
 
 <h1>Svelte Pokédex</h1>
-<section>
+<div>
   <Selection entryAddedHandler={handleAdd} />
   <Seen {entries} />
-</section>
+</div>
 
 <style lang="postcss">
   h1 {
     @apply text-center;
   }
 
-  @media screen(sm) {
-    section {
-      @apply columns-2;
+  @media (min-width: 640px) {
+    div {
+      @apply grid;
+      @apply grid-cols-2;
+      @apply gap-4;
+      min-height: 50vh;
     }
   }
 </style>

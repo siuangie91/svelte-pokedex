@@ -13,9 +13,9 @@
 <!-- TODO receive color as prop -->
 <style lang="postcss">
   section {
-    min-height: 50vh;
     @apply px-4;
     @apply py-4;
+    @apply mb-4;
     @apply rounded-lg;
     @apply bg-slate-200/90;
     @apply shadow-lg;
