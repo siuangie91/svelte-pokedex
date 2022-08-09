@@ -25,11 +25,19 @@
 </svelte:head>
 
 <h1>Svelte Pokédex</h1>
-<Selection entryAddedHandler={handleAdd} />
-<Seen {entries} />
+<section>
+  <Selection entryAddedHandler={handleAdd} />
+  <Seen {entries} />
+</section>
 
 <style>
   h1 {
     @apply text-center;
+  }
+
+  @media screen(sm) {
+    section {
+      @apply columns-2;
+    }
   }
 </style>
