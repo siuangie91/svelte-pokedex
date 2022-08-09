@@ -10,8 +10,11 @@
     min-height: 100vh;
   }
   body {
+    /* position: relative; */
     min-height: 100vh;
     background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
   }
   h1 {
     @apply my-4;
@@ -22,9 +25,5 @@
     @apply my-3;
     @apply text-xl;
     @apply font-bold;
-  }
-  main {
-    @apply px-4;
-    @apply py-4;
   }
 }
