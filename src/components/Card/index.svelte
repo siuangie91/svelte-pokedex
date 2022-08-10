@@ -119,7 +119,8 @@
     @apply rounded-sm;
     @apply text-center;
 
-    @apply after:content-['→'];
+    /* right arrow */
+    @apply after:content-['\0279E'];
     @apply after:absolute;
     @apply after:-right-3.5;
     @apply after:font-normal;
