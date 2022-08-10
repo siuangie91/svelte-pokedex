@@ -6,7 +6,7 @@
   export let name: string;
   export let image: string | null = null;
   export let types: Type[] = [];
-  export let evolution: string[] = [];
+  export let evolutions: string[] = [];
   export let description: string = '';
 </script>
 

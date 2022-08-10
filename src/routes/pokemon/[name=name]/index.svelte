@@ -16,8 +16,7 @@
   let image: string = '';
   let types: Type[] = [];
   let description: string = '';
-  let evolution: string[] = [];
-  let capitalizedName: string = '';
+  let evolutions: string[] = [];
 
   onMount(async () => {
     const result = await fetchGraphQL<{ data: PokemonStats }>(
@@ -52,14 +51,12 @@
       description += ` ${desc}`;
     });
 
-    evolution = evolutionChain.chain.map(({ name }) => name);
+    evolutions = evolutionChain.chain.map(({ name }) => name);
   });
-
-  capitalizedName = name && capitalizeFirstLetter(name);
 </script>
 
 <svelte:head>
-  <title>Svelte Pokédex - {capitalizedName}</title>
+  <title>Svelte Pokédex - {capitalizeFirstLetter(name)}</title>
 </svelte:head>
 
 <!-- TODO refactor into separate components -->
@@ -70,5 +67,5 @@
 {#if typeof id !== 'number'}
   <div />
 {:else}
-  <Card {id} name={capitalizedName} {image} {types} {evolution} {description} />
+  <Card {id} {name} {image} {types} {evolutions} {description} />
 {/if}
