@@ -35,7 +35,7 @@
     @apply text-center;
   }
 
-  @media (min-width: 640px) {
+  @media screen(sm) {
     div {
       @apply grid;
       @apply grid-cols-2;
