@@ -17,7 +17,7 @@
           <a href={`/pokemon/${name}`} target="_blank">
             <span>{id}. {capitalizeFirstLetter(name)}</span>
             <img src={image} alt={name} />
-            <span class="col-span-1">⤴</span>
+            <span class="col-span-1">&#10548;</span><!-- ⤴ -->
           </a>
         </p>
       </li>

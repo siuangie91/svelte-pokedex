@@ -6,14 +6,14 @@
   export let name: string;
   export let image: string | null = null;
   export let types: Type[] = [];
-  export let evolution: string[] = [];
+  export let evolutions: string[] = [];
   export let description: string = '';
 </script>
 
 <section style="--card-bg-color: {TYPE_COLOR_LOOKUP[types[0].type.name].color}">
   <div>
     <h1>
-      <span>{name}</span>
+      <span>{capitalizeFirstLetter(name)}</span>
       <span>#{id}</span>
     </h1>
 
@@ -38,12 +38,16 @@
       </ul>
     {/if}
 
-    {#if evolution.length > 1}
+    {#if evolutions.length > 1}
       <h2 class="card-h2">Evolution</h2>
-      <ol class="list-evolution" style="--num-evolution: {evolution.length}">
-        {#each evolution as stageName}
-          <li style="--evolution-weight: {stageName.toLowerCase() === name.toLowerCase() ? 'bold' : 'normal'}">
-            {capitalizeFirstLetter(stageName)}
+      <ol class="list-evolution" style="--num-evolutions: {evolutions.length}">
+        {#each evolutions as evolution}
+          <li style="--evolution-weight: {evolution.toLowerCase() === name.toLowerCase() ? 'bold' : 'normal'}">
+            {#if evolution === name}
+              <span>{capitalizeFirstLetter(evolution)}</span>
+            {:else}
+              <a sveltekit:reload href={`/pokemon/${evolution}`}>{capitalizeFirstLetter(evolution)}</a>
+            {/if}
           </li>
         {/each}
       </ol>
@@ -112,14 +116,16 @@
   }
 
   .list-evolution {
-    grid-template-columns: repeat(var(--num-evolution), minmax(0, 1fr));
+    grid-template-columns: repeat(var(--num-evolutions), minmax(0, 1fr));
   }
+
   .list-evolution li {
     @apply relative;
     @apply rounded-sm;
     @apply text-center;
 
-    @apply after:content-['→'];
+    /* right arrow */
+    @apply after:content-['\0279E'];
     @apply after:absolute;
     @apply after:-right-3.5;
     @apply after:font-normal;
@@ -127,6 +133,12 @@
     @apply last-of-type:after:content-none;
 
     font-weight: var(--evolution-weight);
+  }
+
+  .list-evolution li a {
+    @apply text-cyan-800;
+    @apply underline;
+    @apply hover:no-underline;
   }
 
   .description {
