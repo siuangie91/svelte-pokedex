@@ -40,7 +40,9 @@
 
   a {
     @apply grid;
-    @apply grid-cols-12;
+    @apply grid-cols-6;
+    @apply sm:grid-cols-12;
+
     @apply text-cyan-800;
     @apply hover:underline;
   }
@@ -49,12 +51,16 @@
     @apply inline-flex;
     @apply items-center;
 
-    @apply first-of-type:col-span-9;
+    @apply first-of-type:col-span-4;
+    @apply sm:first-of-type:col-span-9;
+
     @apply last-of-type:col-span-1;
   }
 
   img {
     @apply h-14;
-    @apply col-span-2;
+
+    @apply col-span-1;
+    @apply sm:col-span-2;
   }
 </style>
