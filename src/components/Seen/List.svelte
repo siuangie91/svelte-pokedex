@@ -43,4 +43,8 @@
     @apply inline-flex;
     @apply items-center;
   }
+
+  img {
+    @apply h-14;
+  }
 </style>
