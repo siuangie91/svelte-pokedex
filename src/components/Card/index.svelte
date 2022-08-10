@@ -10,7 +10,7 @@
   export let description: string = '';
 </script>
 
-<section>
+<section style="--card-bg-color: {TYPE_COLOR_LOOKUP[types[0].type.name].color}">
   <div>
     <h1>{id}. {name}</h1>
 
@@ -38,8 +38,10 @@
     {#if evolution.length}
       <h2 class="card-h2">Evolution</h2>
       <ol class="list-evolution" style="--num-evolution: {evolution.length}">
-        {#each evolution as name}
-          <li>{capitalizeFirstLetter(name)}</li>
+        {#each evolution as stageName}
+          <li style="--evolution-weight: {stageName.toLowerCase() === name.toLowerCase() ? 'bold' : 'normal'}">
+            {capitalizeFirstLetter(stageName)}
+          </li>
         {/each}
       </ol>
     {/if}
@@ -53,16 +55,16 @@
 
 <style lang="postcss">
   section {
-    max-width: 350px;
     @apply mx-auto;
     @apply p-4;
-    @apply bg-amber-300;
     @apply rounded-lg;
+    max-width: 350px;
+    background: var(--card-bg-color);
   }
 
   div {
     @apply p-4;
-    @apply bg-white;
+    background-color: rgba(255, 255, 255, 0.75);
   }
 
   h1 {
@@ -105,7 +107,6 @@
     grid-template-columns: repeat(var(--num-evolution), minmax(0, 1fr));
   }
   .list-evolution li {
-    background-color: gray;
     @apply rounded-sm;
     @apply text-center;
     @apply relative;
@@ -115,6 +116,8 @@
     @apply after:-right-4;
 
     @apply last-of-type:after:content-none;
+
+    font-weight: var(--evolution-weight);
   }
 
   .description {
