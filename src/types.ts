@@ -3,7 +3,7 @@ interface Identifiers {
   name: string;
 }
 
-interface Specy {
+export interface Specy {
   pokemon: {
     id: number;
     name: string;

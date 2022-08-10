@@ -1,9 +1,9 @@
 // TODO test
-import type { Specy, PokemonLookupGQL } from 'src/types';
+import type { Specy, PokemonLookup } from 'src/types';
 
 // todo jsdoc
 export const createLookupByNameGql = (entries: Specy[]) => {
-  return entries.reduce<PokemonLookupGQL>((acc, entry) => {
+  return entries.reduce<PokemonLookup>((acc, entry) => {
     const { pokemon } = entry;
     const { id, name, forms } = pokemon[0];
 
