@@ -34,6 +34,10 @@ export const capitalizeFirstLetter = (str: string) => {
   return `${firstLetter.toUpperCase()}${rest}`;
 };
 
+/**
+ * Lookup table to associate a Pokemon's type with a color
+ * and whether that color is considered dark
+ */
 export const TYPE_COLOR_LOOKUP: TypeColorLookup = {
   normal: {
     color: '#eeeeee',
