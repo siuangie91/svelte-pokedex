@@ -8,7 +8,7 @@
 
   import Card from 'components/Card/index.svelte';
 
-  const { name } = $page.params;
+  const name = $page.params.name.toLowerCase();
 
   let failedFetch = false;
 
