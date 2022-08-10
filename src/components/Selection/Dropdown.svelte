@@ -22,17 +22,12 @@
     const { data } = result;
     const { gen1 } = data;
 
-    console.log('gen1', gen1);
-
     pokemonLookup = createLookupByNameGql(gen1.species);
 
     pokemonEntries = Object.entries(pokemonLookup).map(([, data]) => data);
   });
 
   let selected = pokemonEntries[0]?.name || '';
-
-  $: console.log('selected', selected);
-  $: console.log('lookup', pokemonLookup);
 
   const dispatch = createEventDispatcher();
 
