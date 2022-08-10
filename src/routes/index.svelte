@@ -35,7 +35,12 @@
     @apply text-center;
   }
 
-  @media (min-width: 640px) {
+  div {
+    @apply mx-auto;
+    max-width: 1200px;
+  }
+
+  @media screen(sm) {
     div {
       @apply grid;
       @apply grid-cols-2;

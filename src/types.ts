@@ -3,7 +3,7 @@ interface Identifiers {
   name: string;
 }
 
-interface Specy {
+export interface Specy {
   pokemon: {
     id: number;
     name: string;
@@ -53,4 +53,11 @@ export interface Summary extends Identifiers {
 
 export interface PokemonLookup {
   [key: Summary['name']]: Summary;
+}
+
+export interface TypeColorLookup {
+  [key: string]: {
+    color: string;
+    dark: boolean;
+  };
 }
