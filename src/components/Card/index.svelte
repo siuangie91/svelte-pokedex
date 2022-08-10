@@ -72,14 +72,14 @@
 
   h1 {
     @apply m-0;
-    @apply text-lg;
+    @apply text-xl;
 
     @apply flex;
     @apply justify-between;
   }
 
   .card-h2 {
-    @apply text-sm;
+    @apply text-lg;
   }
 
   img {
@@ -128,6 +128,6 @@
   }
 
   .description {
-    @apply text-sm;
+    @apply text-base;
   }
 </style>
