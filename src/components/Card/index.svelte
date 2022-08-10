@@ -12,7 +12,10 @@
 
 <section style="--card-bg-color: {TYPE_COLOR_LOOKUP[types[0].type.name].color}">
   <div>
-    <h1>{id}. {name}</h1>
+    <h1>
+      <span>{name}</span>
+      <span>#{id}</span>
+    </h1>
 
     {#if image}
       <img src={image} alt={`${name}`} />
@@ -70,6 +73,9 @@
   h1 {
     @apply m-0;
     @apply text-lg;
+
+    @apply flex;
+    @apply justify-between;
   }
 
   .card-h2 {
@@ -96,11 +102,11 @@
     grid-template-columns: repeat(var(--num-types), minmax(0, 1fr));
   }
   .list-types li {
-    background-color: var(--type-bg-color);
-    color: var(--type-text-color);
+    @apply p-1;
     @apply rounded-sm;
     @apply text-center;
-    @apply p-1;
+    background-color: var(--type-bg-color);
+    color: var(--type-text-color);
   }
 
   .list-evolution {
