@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Type } from 'src/types';
-  import { capitalizeFirstLetter } from 'utils';
+  import { capitalizeFirstLetter, TYPE_COLOR_LOOKUP } from 'utils';
 
   export let id: number;
   export let name: string;
@@ -8,8 +8,6 @@
   export let types: Type[] = [];
   export let evolution: string[] = [];
   export let description: string = '';
-
-  // const gridTemplateColumns = `repeat(${types.length}, minmax(0, 1fr))`;
 </script>
 
 <section>
@@ -24,7 +22,15 @@
       <h2 class="card-h2">Types</h2>
       <ul class="list-types" style="--num-types: {types.length}">
         {#each types as { type }}
-          <li>{capitalizeFirstLetter(type.name)}</li>
+          <li
+            style="--type-bg-color: {TYPE_COLOR_LOOKUP[type.name].color}; --type-text-color: {TYPE_COLOR_LOOKUP[
+              type.name
+            ].dark
+              ? '#fff'
+              : '#000'}"
+          >
+            {capitalizeFirstLetter(type.name)}
+          </li>
         {/each}
       </ul>
     {/if}
@@ -89,7 +95,8 @@
     grid-template-columns: repeat(var(--num-types), minmax(0, 1fr));
   }
   .list-types li {
-    background-color: gray;
+    background-color: var(--type-bg-color);
+    color: var(--type-text-color);
     @apply rounded-sm;
     @apply text-center;
   }
