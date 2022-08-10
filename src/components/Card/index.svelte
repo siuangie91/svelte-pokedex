@@ -90,7 +90,6 @@
 
   li {
     @apply text-sm;
-    @apply p-1;
   }
 
   .list-types {
@@ -101,19 +100,21 @@
     color: var(--type-text-color);
     @apply rounded-sm;
     @apply text-center;
+    @apply p-1;
   }
 
   .list-evolution {
     grid-template-columns: repeat(var(--num-evolution), minmax(0, 1fr));
   }
   .list-evolution li {
+    @apply relative;
     @apply rounded-sm;
     @apply text-center;
-    @apply relative;
 
     @apply after:content-['→'];
     @apply after:absolute;
-    @apply after:-right-4;
+    @apply after:-right-3.5;
+    @apply after:font-normal;
 
     @apply last-of-type:after:content-none;
 
