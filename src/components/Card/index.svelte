@@ -80,6 +80,11 @@
     @apply gap-4;
   }
 
+  li {
+    @apply text-sm;
+    @apply p-1;
+  }
+
   .list-types {
     grid-template-columns: repeat(var(--num-types), minmax(0, 1fr));
   }
