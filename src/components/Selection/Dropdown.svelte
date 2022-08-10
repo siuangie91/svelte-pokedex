@@ -83,8 +83,15 @@
     @apply rounded;
   }
 
+  select {
+    @apply cursor-pointer;
+  }
+
   button {
     @apply bg-cyan-800;
     @apply text-white;
+    @apply shadow-md;
+    @apply shadow-slate-500;
+    @apply hover:shadow-none;
   }
 </style>

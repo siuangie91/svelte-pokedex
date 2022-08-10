@@ -17,6 +17,7 @@
           <a href={`/pokemon/${name}`} target="_blank">
             <span>{id}. {capitalizeFirstLetter(name)}</span>
             <img src={image} alt={name} />
+            <span class="col-span-1">⤴</span>
           </a>
         </p>
       </li>
@@ -31,20 +32,29 @@
     @apply px-2;
     @apply py-1;
     @apply mb-2;
+
+    @apply shadow-sm;
+    @apply shadow-slate-500;
+    @apply hover:shadow-none;
   }
 
   a {
-    @apply flex;
-    @apply flex-row;
-    @apply justify-between;
+    @apply grid;
+    @apply grid-cols-12;
+    @apply text-cyan-800;
+    @apply hover:underline;
   }
 
   span {
     @apply inline-flex;
     @apply items-center;
+
+    @apply first-of-type:col-span-9;
+    @apply last-of-type:col-span-1;
   }
 
   img {
     @apply h-14;
+    @apply col-span-2;
   }
 </style>
