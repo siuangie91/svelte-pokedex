@@ -38,7 +38,7 @@
       </ul>
     {/if}
 
-    {#if evolution.length}
+    {#if evolution.length > 1}
       <h2 class="card-h2">Evolution</h2>
       <ol class="list-evolution" style="--num-evolution: {evolution.length}">
         {#each evolution as stageName}
