@@ -61,6 +61,8 @@
     @apply mx-auto;
     @apply p-4;
     @apply rounded-lg;
+    @apply shadow-lg;
+    @apply shadow-slate-600;
     max-width: 400px;
     background: var(--card-bg-color);
   }
