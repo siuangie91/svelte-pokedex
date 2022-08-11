@@ -3,6 +3,7 @@
   import Container from 'components/shared/Container.svelte';
   import Dropdown from './Dropdown.svelte';
 
+  // Todo test
   const handleAdd = (event: CustomEvent) => {
     const entry = event.detail;
     const { name } = entry;
