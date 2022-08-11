@@ -1,8 +1,14 @@
 <script lang="ts">
+  import { seenPokemon } from 'src/stores';
   import type { PokemonLookup } from 'src/types';
   import { capitalizeFirstLetter } from 'utils';
 
-  export let pokemons: PokemonLookup = {};
+  let pokemons: PokemonLookup = {};
+
+  seenPokemon.subscribe(seen => {
+    if (!seen) return;
+    pokemons = { ...seen };
+  });
 
   $: pokemonsList = Object.values(pokemons).sort((a, b) => a.id - b.id);
 </script>
