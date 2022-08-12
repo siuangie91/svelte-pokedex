@@ -26,4 +26,10 @@
     @apply text-xl;
     @apply font-bold;
   }
+
+  a {
+    @apply text-cyan-800;
+    @apply underline;
+    @apply hover:no-underline;
+  }
 }

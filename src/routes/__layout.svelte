@@ -27,9 +27,4 @@
     @apply bg-slate-300;
     @apply text-xs;
   }
-
-  footer a {
-    @apply text-cyan-800;
-    @apply underline;
-  }
 </style>

@@ -140,12 +140,6 @@
     font-weight: var(--evolution-weight);
   }
 
-  .list-evolution li a {
-    @apply text-cyan-800;
-    @apply underline;
-    @apply hover:no-underline;
-  }
-
   .description {
     @apply text-base;
   }
