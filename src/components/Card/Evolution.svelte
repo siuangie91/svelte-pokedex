@@ -3,13 +3,20 @@
 
   export let name: string;
   export let evolutions: string[] = [];
+
+  let numColumns = 0;
+  if (evolutions.length <= 3) {
+    numColumns = evolutions.length;
+  } else {
+    numColumns = evolutions.length % 2 === 0 ? 4 : 3;
+  }
 </script>
 
 {#if evolutions.length > 1}
   <h2>Evolution</h2>
   <ol
     style="
-      --num-columns: {evolutions.length <= 3 ? evolutions.length : 3}
+      --num-columns: {numColumns}
     "
   >
     {#each evolutions as evolution}
