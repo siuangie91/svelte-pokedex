@@ -50,7 +50,8 @@
     @apply sm:grid-cols-12;
 
     @apply text-cyan-800;
-    @apply hover:underline;
+    @apply underline;
+    @apply hover:no-underline;
   }
 
   span {
