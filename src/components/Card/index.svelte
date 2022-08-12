@@ -121,12 +121,12 @@
   }
 
   .list-evolution {
+    @apply gap-y-1;
     grid-template-columns: repeat(var(--num-evolutions), minmax(0, 1fr));
   }
 
   .list-evolution li {
     @apply relative;
-    @apply rounded-sm;
     @apply text-center;
 
     /* right arrow */
