@@ -61,7 +61,10 @@
 
 <!-- TODO refactor into separate components -->
 {#if failedFetch}
-  <p>Oh no! We couldn't get that Pokémon!</p>
+  <section class="error">
+    <h2>Sorry!</h2>
+    <p>Oh no! We couldn't get that Pokémon!</p>
+  </section>
 {/if}
 
 {#if typeof id !== 'number'}
@@ -69,3 +72,18 @@
 {:else}
   <Card {id} {name} {image} {types} {evolutions} {description} />
 {/if}
+
+<style lang="postcss">
+  .error {
+    @apply p-4;
+    @apply bg-red-800;
+    @apply rounded-md;
+    @apply text-white;
+    @apply shadow-lg;
+    @apply shadow-slate-600;
+  }
+
+  .error h2 {
+    @apply mt-0;
+  }
+</style>
