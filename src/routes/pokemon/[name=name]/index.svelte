@@ -74,6 +74,10 @@
 {/if}
 
 <style lang="postcss">
+  .error {
+    @apply mx-auto;
+    max-width: 400px;
+  }
   .error h2 {
     @apply mt-0;
   }
