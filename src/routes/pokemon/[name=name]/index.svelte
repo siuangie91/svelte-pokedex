@@ -74,15 +74,6 @@
 {/if}
 
 <style lang="postcss">
-  .error {
-    @apply p-4;
-    @apply bg-red-800;
-    @apply rounded-md;
-    @apply text-white;
-    @apply shadow-lg;
-    @apply shadow-slate-600;
-  }
-
   .error h2 {
     @apply mt-0;
   }

@@ -47,7 +47,7 @@
 
 <!-- TODO style error -->
 {#if failedFetch}
-  <p>Oh no! We couldn't get the Pokémon list!</p>
+  <p class="error">Oh no! We couldn't get the Pokémon list!</p>
 {/if}
 
 <!-- TODO style dropdown-->
