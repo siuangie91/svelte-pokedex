@@ -40,7 +40,12 @@
 
     {#if evolutions.length > 1}
       <h2 class="card-h2">Evolution</h2>
-      <ol class="list-evolution" style="--num-evolutions: {evolutions.length}">
+      <ol
+        class="list-evolution"
+        style="
+          --num-evolutions: {evolutions.length <= 3 ? evolutions.length : 3}
+        "
+      >
         {#each evolutions as evolution}
           <li style="--evolution-weight: {evolution.toLowerCase() === name.toLowerCase() ? 'bold' : 'normal'}">
             {#if evolution === name}
