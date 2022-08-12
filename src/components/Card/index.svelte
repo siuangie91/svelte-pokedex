@@ -43,7 +43,7 @@
       <ol
         class="list-evolution"
         style="
-          --num-evolutions: {evolutions.length <= 3 ? evolutions.length : 3}
+          --num-columns: {evolutions.length <= 3 ? evolutions.length : 3}
         "
       >
         {#each evolutions as evolution}
@@ -122,7 +122,7 @@
 
   .list-evolution {
     @apply gap-y-1;
-    grid-template-columns: repeat(var(--num-evolutions), minmax(0, 1fr));
+    grid-template-columns: repeat(var(--num-columns), minmax(0, 1fr));
   }
 
   .list-evolution li {
