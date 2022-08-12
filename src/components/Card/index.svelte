@@ -40,7 +40,12 @@
 
     {#if evolutions.length > 1}
       <h2 class="card-h2">Evolution</h2>
-      <ol class="list-evolution" style="--num-evolutions: {evolutions.length}">
+      <ol
+        class="list-evolution"
+        style="
+          --num-evolutions: {evolutions.length <= 3 ? evolutions.length : 3}
+        "
+      >
         {#each evolutions as evolution}
           <li style="--evolution-weight: {evolution.toLowerCase() === name.toLowerCase() ? 'bold' : 'normal'}">
             {#if evolution === name}
@@ -116,12 +121,12 @@
   }
 
   .list-evolution {
+    @apply gap-y-1;
     grid-template-columns: repeat(var(--num-evolutions), minmax(0, 1fr));
   }
 
   .list-evolution li {
     @apply relative;
-    @apply rounded-sm;
     @apply text-center;
 
     /* right arrow */
@@ -133,12 +138,6 @@
     @apply last-of-type:after:content-none;
 
     font-weight: var(--evolution-weight);
-  }
-
-  .list-evolution li a {
-    @apply text-cyan-800;
-    @apply underline;
-    @apply hover:no-underline;
   }
 
   .description {
