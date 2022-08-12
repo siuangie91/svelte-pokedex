@@ -48,10 +48,6 @@
     @apply grid;
     @apply grid-cols-10;
     @apply sm:grid-cols-12;
-
-    /* @apply text-cyan-800;
-    @apply underline;
-    @apply hover:no-underline; */
   }
 
   span {
