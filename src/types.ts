@@ -3,16 +3,16 @@ interface Identifiers {
   name: string;
 }
 
-export interface Specy {
-  pokemon: {
-    id: number;
-    name: string;
-    forms: {
-      sprites: {
-        sprites: string;
-      }[];
+interface Forms extends Identifiers {
+  forms: {
+    sprites: {
+      sprites: string;
     }[];
   }[];
+}
+
+export interface Specy {
+  pokemon: Forms[];
 }
 
 export interface Generation1 {
