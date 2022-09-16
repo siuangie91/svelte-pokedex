@@ -1,48 +1,22 @@
 # svelte-pokedex
 
-A redo of my [react-pokedex](https://github.com/siuangie91/svelte-pokedex.git) project using the [Svelte](https://svelte.dev/) framework.
+Simple dropdown-based Pokedex built on the [Svelte](https://svelte.dev/) framework that pulls data from the [PokeAPI](https://pokeapi.co/) using [GraphQL](https://graphql.org/). 
+
+Styled using [TailwindCSS](https://tailwindcss.com/). 
 
 Scaffolded with [SvelteKit](https://kit.svelte.dev/).
 
-Uses [PokéAPI](https://pokeapi.co/docs/v2#pokedexes) to fetch the first 20 Gen 1 Pokemon.
+(ℹ️ _Redo of my [react-pokedex](https://github.com/siuangie91/svelte-pokedex.git) project._)
 
 # 🛑 This is a Work-In-Progress 🛑
 
-# create-svelte
+Tasks are managed in this [GitHub Project](https://github.com/siuangie91/svelte-pokedex/projects/1).
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Stack
+- [Svelte](https://svelte.dev/)
+- TypeScript
+- [PokeAPI](https://pokeapi.co/) queried through its [GraphQL interface](https://pokeapi.co/docs/graphql)
+- Jest
+- Heroku
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
