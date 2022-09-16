@@ -15,6 +15,7 @@ Tasks are managed in this [GitHub Project](https://github.com/siuangie91/svelte-
 ## Stack
 - [Svelte](https://svelte.dev/)
 - TypeScript
+- [TailwindCSS](https://tailwindcss.com/)
 - [PokeAPI](https://pokeapi.co/) queried through its [GraphQL interface](https://pokeapi.co/docs/graphql)
 - Jest
 - Heroku
