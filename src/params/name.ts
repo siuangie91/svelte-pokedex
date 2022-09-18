@@ -1,11 +1,10 @@
 import type { ParamMatcher } from '@sveltejs/kit';
 
-// TODO test
 /**
  * Checks whether the [name] route param matches
- * https://regex101.com/r/OcQlAQ/1
+ * https://regex101.com/r/wFbmgb/1
  * @param param
  */
-export const match: ParamMatcher = (param: string) => {
+export const match: ParamMatcher = (param: string): boolean => {
   return /^[a-zA-Z]+-?[a-zA-Z]+$/.test(param);
 };
