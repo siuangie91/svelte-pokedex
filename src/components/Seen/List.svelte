@@ -23,7 +23,13 @@
           <a href={`/pokemon/${name}`} target="_blank">
             <span>{id}. {capitalizeFirstLetter(name)}</span>
             <img src={image} alt={name} />
-            <span class="col-span-1">&#10548;</span><!-- ⤴ -->
+            <!-- use html entities to create open in new tab icon -->
+            <span aria-hidden="true">
+              <span class="link-icon-component" id="link-icon-square" style="text-decoration-line: none !important">
+                &#9744 <!-- ☐ -->
+              </span>
+              <span class="link-icon-component" id="link-icon-arrow">&#8599;</span><!-- ↗ -->
+            </span>
           </a>
         </p>
       </li>
@@ -48,6 +54,7 @@
     @apply grid;
     @apply grid-cols-10;
     @apply sm:grid-cols-12;
+    @apply no-underline;
   }
 
   span {
@@ -55,6 +62,9 @@
     @apply items-center;
 
     @apply first-of-type:col-span-7;
+    @apply first-of-type:underline;
+    @apply first-of-type:hover:no-underline;
+
     @apply sm:first-of-type:col-span-9;
 
     @apply last-of-type:col-span-1;
@@ -64,5 +74,16 @@
     @apply h-14;
 
     @apply col-span-2;
+  }
+
+  .link-icon-component {
+    /* @apply no-underline; */
+    /* text-decoration: none; */
+  }
+
+  #link-icon-arrow {
+    position: relative;
+    top: -0.2rem;
+    left: -0.5rem;
   }
 </style>
