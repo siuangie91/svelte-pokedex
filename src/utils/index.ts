@@ -5,6 +5,8 @@ import type { Specy, PokemonLookup, TypeColorLookup } from 'src/types';
  * @param entries
  */
 export const createLookupByName = (entries: Specy[]) => {
+  if (!entries.length) return {};
+
   return entries.reduce<PokemonLookup>((acc, entry) => {
     const { pokemon } = entry;
     const { id, name, forms } = pokemon[0];
@@ -14,7 +16,7 @@ export const createLookupByName = (entries: Specy[]) => {
     acc[name] = {
       id,
       name,
-      image,
+      image: image ?? '',
     };
 
     return acc;
