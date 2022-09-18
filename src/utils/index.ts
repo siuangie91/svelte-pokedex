@@ -1,10 +1,8 @@
-// TODO test
 import type { Specy, PokemonLookup, TypeColorLookup } from 'src/types';
 
 /**
  * Given a species array, return a lookup table by pokemon name
  * @param entries
- * @returns
  */
 export const createLookupByNameGql = (entries: Specy[]) => {
   return entries.reduce<PokemonLookup>((acc, entry) => {
@@ -26,9 +24,10 @@ export const createLookupByNameGql = (entries: Specy[]) => {
 /**
  * Capitalizes the first letter of a string
  * @param str
- * @returns
  */
 export const capitalizeFirstLetter = (str: string) => {
+  if (!str) return '';
+
   const firstLetter = str[0];
   const rest = str.slice(1);
   return `${firstLetter.toUpperCase()}${rest}`;
