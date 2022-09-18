@@ -21,14 +21,12 @@
       <li>
         <p>
           <a href={`/pokemon/${name}`} target="_blank">
-            <span>{id}. {capitalizeFirstLetter(name)}</span>
+            <span class="id-name">{id}. {capitalizeFirstLetter(name)}</span>
             <img src={image} alt={name} />
             <!-- use html entities to create open in new tab icon -->
-            <span aria-hidden="true">
-              <span class="link-icon-component" id="link-icon-square" style="text-decoration-line: none !important">
-                &#9744 <!-- ☐ -->
-              </span>
-              <span class="link-icon-component" id="link-icon-arrow">&#8599;</span><!-- ↗ -->
+            <span aria-hidden="true" class="link-icon">
+              <span>&#9744</span><!-- ☐ -->
+              <span class="link-icon-arrow">&#8599;</span><!-- ↗ -->
             </span>
           </a>
         </p>
@@ -60,29 +58,28 @@
   span {
     @apply inline-flex;
     @apply items-center;
+  }
 
-    @apply first-of-type:col-span-7;
-    @apply first-of-type:underline;
-    @apply first-of-type:hover:no-underline;
+  span.id-name {
+    @apply col-span-7;
+    @apply sm:col-span-9;
+    @apply underline;
+    @apply underline-offset-4;
+    @apply hover:no-underline;
+  }
 
-    @apply sm:first-of-type:col-span-9;
-
-    @apply last-of-type:col-span-1;
+  span.link-icon {
+    @apply col-span-1;
+    @apply no-underline;
   }
 
   img {
     @apply h-14;
-
     @apply col-span-2;
   }
 
-  .link-icon-component {
-    /* @apply no-underline; */
-    /* text-decoration: none; */
-  }
-
-  #link-icon-arrow {
-    position: relative;
+  .link-icon-arrow {
+    @apply relative;
     top: -0.2rem;
     left: -0.5rem;
   }
