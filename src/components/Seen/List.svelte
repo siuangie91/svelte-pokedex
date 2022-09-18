@@ -21,9 +21,13 @@
       <li>
         <p>
           <a href={`/pokemon/${name}`} target="_blank">
-            <span>{id}. {capitalizeFirstLetter(name)}</span>
+            <span class="id-name">{id}. {capitalizeFirstLetter(name)}</span>
             <img src={image} alt={name} />
-            <span class="col-span-1">&#10548;</span><!-- ⤴ -->
+            <!-- use html entities to create open in new tab icon -->
+            <span aria-hidden="true" class="link-icon">
+              <span>&#9744</span><!-- ☐ -->
+              <span class="link-icon-arrow">&#8599;</span><!-- ↗ -->
+            </span>
           </a>
         </p>
       </li>
@@ -48,21 +52,35 @@
     @apply grid;
     @apply grid-cols-10;
     @apply sm:grid-cols-12;
+    @apply no-underline;
   }
 
   span {
     @apply inline-flex;
     @apply items-center;
+  }
 
-    @apply first-of-type:col-span-7;
-    @apply sm:first-of-type:col-span-9;
+  span.id-name {
+    @apply col-span-7;
+    @apply sm:col-span-9;
+    @apply underline;
+    @apply underline-offset-4;
+    @apply hover:no-underline;
+  }
 
-    @apply last-of-type:col-span-1;
+  span.link-icon {
+    @apply col-span-1;
+    @apply no-underline;
   }
 
   img {
     @apply h-14;
-
     @apply col-span-2;
+  }
+
+  .link-icon-arrow {
+    @apply relative;
+    top: -0.2rem;
+    left: -0.5rem;
   }
 </style>
