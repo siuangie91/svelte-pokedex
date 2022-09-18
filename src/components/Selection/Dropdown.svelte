@@ -45,12 +45,10 @@
   };
 </script>
 
-<!-- TODO style error -->
 {#if failedFetch}
   <p class="error">Oh no! We couldn't get the Pokémon list!</p>
 {/if}
 
-<!-- TODO style dropdown-->
 {#if pokemonEntries.length}
   <select bind:value={selected}>
     {#each pokemonEntries as { id, name }}
