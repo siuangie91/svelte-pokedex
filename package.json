@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "prepare": "svelte-kit sync",
     "test": "jest",
+    "test:watch": "npm run test -- --watch",
     "test:e2e": "playwright test",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
