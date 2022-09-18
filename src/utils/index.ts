@@ -1,12 +1,12 @@
-// TODO test
 import type { Specy, PokemonLookup, TypeColorLookup } from 'src/types';
 
 /**
  * Given a species array, return a lookup table by pokemon name
  * @param entries
- * @returns
  */
-export const createLookupByNameGql = (entries: Specy[]) => {
+export const createLookupByName = (entries: Specy[]) => {
+  if (!entries.length) return {};
+
   return entries.reduce<PokemonLookup>((acc, entry) => {
     const { pokemon } = entry;
     const { id, name, forms } = pokemon[0];
@@ -16,7 +16,7 @@ export const createLookupByNameGql = (entries: Specy[]) => {
     acc[name] = {
       id,
       name,
-      image,
+      image: image ?? '',
     };
 
     return acc;
@@ -26,9 +26,10 @@ export const createLookupByNameGql = (entries: Specy[]) => {
 /**
  * Capitalizes the first letter of a string
  * @param str
- * @returns
  */
 export const capitalizeFirstLetter = (str: string) => {
+  if (!str) return '';
+
   const firstLetter = str[0];
   const rest = str.slice(1);
   return `${firstLetter.toUpperCase()}${rest}`;
@@ -38,7 +39,7 @@ export const capitalizeFirstLetter = (str: string) => {
  * Lookup table to associate a Pokemon's type with a color
  * and whether that color is considered dark
  */
-export const TYPE_COLOR_LOOKUP: TypeColorLookup = {
+export const TYPE_COLOR_LOOKUP: Readonly<TypeColorLookup> = {
   normal: {
     color: '#eeeeee',
     dark: false,

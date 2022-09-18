@@ -2,7 +2,7 @@
   import { onMount, createEventDispatcher } from 'svelte';
   import type { Generation1, Summary, PokemonLookup } from 'src/types';
   import first20Gen1Query from 'queries/first20Gen1Query';
-  import { createLookupByNameGql, capitalizeFirstLetter } from 'utils';
+  import { createLookupByName, capitalizeFirstLetter } from 'utils';
   import { fetchGraphQL } from 'network';
 
   let failedFetch = false;
@@ -22,7 +22,7 @@
     const { data } = result;
     const { gen1 } = data;
 
-    pokemonLookup = createLookupByNameGql(gen1.species);
+    pokemonLookup = createLookupByName(gen1.species);
 
     pokemonEntries = Object.entries(pokemonLookup).map(([, data]) => data);
   });
@@ -45,12 +45,10 @@
   };
 </script>
 
-<!-- TODO style error -->
 {#if failedFetch}
   <p class="error">Oh no! We couldn't get the Pokémon list!</p>
 {/if}
 
-<!-- TODO style dropdown-->
 {#if pokemonEntries.length}
   <select bind:value={selected}>
     {#each pokemonEntries as { id, name }}
