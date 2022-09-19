@@ -1,4 +1,4 @@
-# svelte-pokedex <img height="25" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg" alt="Svelte" title="Svelte" style="padding-right: 1rem;" /> 
+# svelte-pokedex
 
 ![Status](https://img.shields.io/badge/status-work%20in%20progress-orange.svg?style=for-the-badge) 
 
