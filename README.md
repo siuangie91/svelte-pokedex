@@ -39,7 +39,7 @@ Scaffolded with [SvelteKit](https://kit.svelte.dev/).
       <p>Click a Pokemon in your seen list to see more details on it; the app will open a new tab on the `/pokemon/:name` route.</p>
     </td>
     <td>
-      <img width="1200" alt="Screen Shot 2022-09-18 at 9 34 37 PM" src="https://user-images.githubusercontent.com/11896191/190937518-92948b43-6beb-4397-ab54-7354bdc41447.png">
+      <img width="1200" alt="homepage screenshot" src="https://user-images.githubusercontent.com/11896191/190937518-92948b43-6beb-4397-ab54-7354bdc41447.png">
     </td>
   </tr>
 </table>
@@ -52,7 +52,7 @@ Scaffolded with [SvelteKit](https://kit.svelte.dev/).
       <p>Pulls the data for the Pokemon given by the `:name` parameter from PokeAPI, and renders the information in the style of a Pokemon card.</p>
     </td>
     <td>
-      <img width="600" alt="Screen Shot 2022-09-18 at 9 27 51 PM" src="https://user-images.githubusercontent.com/11896191/190937806-976d5502-48bc-468c-8025-9d15cf275117.png">
+      <img width="600" alt="pokemon route screenshot" src="https://user-images.githubusercontent.com/11896191/190937806-976d5502-48bc-468c-8025-9d15cf275117.png">
     </td>
   </tr>
 </table>
