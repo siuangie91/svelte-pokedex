@@ -15,10 +15,14 @@ export interface Specy {
   pokemon: Forms[];
 }
 
-export interface Generation1 {
-  gen1: {
-    name: string;
-    species: Specy[];
+interface Generation1 {
+  name: string;
+  species: Specy[];
+}
+
+export interface Generation1QueryResponse {
+  data: {
+    gen1: Generation1;
   };
 }
 
