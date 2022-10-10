@@ -1,12 +1,13 @@
 <script context="module" lang="ts">
   import type { LoadEvent } from '@sveltejs/kit';
   import type { PokemonStats } from 'src/types';
+  import { POKEAPI_GQL_URL } from 'src/network';
   import pokemonQuery from 'src/queries/pokemonQuery';
 
   export async function load({ fetch, params }: LoadEvent) {
     const name = params.name?.toLowerCase();
 
-    const response = await fetch('https://beta.pokeapi.co/graphql/v1beta', {
+    const response = await fetch(POKEAPI_GQL_URL, {
       method: 'POST',
       body: JSON.stringify({
         query: pokemonQuery,
@@ -56,21 +57,11 @@
   });
 
   const evolutions = evolutionChain.chain.map(({ name }) => name);
-
-  let failedFetch = false;
 </script>
 
 <svelte:head>
   <title>Svelte Pokédex - {capitalizeFirstLetter(name)}</title>
 </svelte:head>
-
-<!-- TODO refactor into separate components -->
-{#if failedFetch}
-  <section class="error">
-    <h2>Sorry!</h2>
-    <p>Oh no! We couldn't get that Pokémon!</p>
-  </section>
-{/if}
 
 {#if typeof id !== 'number'}
   <div />
