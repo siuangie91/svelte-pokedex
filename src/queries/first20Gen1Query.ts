@@ -1,6 +1,6 @@
 import gql from './utils/gqlTag';
 
-const first20Gen1Query = gql`
+const first20Gen1Query: string = gql`
   query First20Gen1($id: Int!) {
     gen1: pokemon_v2_generation_by_pk(id: $id) {
       name
