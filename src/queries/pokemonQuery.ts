@@ -1,6 +1,6 @@
 import gql from './utils/gqlTag';
 
-const pokemonQuery = gql`
+const pokemonQuery: string = gql`
   query Pokemon($id: String!) {
     pokemon: pokemon_v2_pokemon(where: { name: { _eq: $id } }) {
       id
