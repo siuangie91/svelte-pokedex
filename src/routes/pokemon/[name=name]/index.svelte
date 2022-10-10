@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
-  import type { PokemonStats, Type } from 'src/types';
+  import type { PokemonQueryResponse, Type } from 'src/types';
   import pokemonQuery from 'src/queries/pokemonQuery';
   import { capitalizeFirstLetter } from 'utils';
   import { fetchGraphQL } from 'network';
@@ -19,7 +19,7 @@
   let evolutions: string[] = [];
 
   onMount(async () => {
-    const result = await fetchGraphQL<{ data: PokemonStats }>(
+    const result = await fetchGraphQL<PokemonQueryResponse>(
       pokemonQuery,
       {
         id: name,
