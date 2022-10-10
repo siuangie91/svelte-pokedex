@@ -1,97 +1,63 @@
 <script context="module" lang="ts">
   import type { LoadEvent } from '@sveltejs/kit';
-  import pokeQuery from 'src/queries/pokemonQuery';
+  import type { PokemonStats } from 'src/types';
+  import pokemonQuery from 'src/queries/pokemonQuery';
 
   export async function load({ fetch, params }: LoadEvent) {
-    console.log('🔰', params);
+    const name = params.name?.toLowerCase();
 
-    const name = params.name.toLowerCase();
-
-    try {
-      const response = await fetch('https://beta.pokeapi.co/graphql/v1beta', {
-        method: 'POST',
-        body: JSON.stringify({
-          query: pokeQuery,
-          variables: {
-            id: name,
-          },
-          operationName: 'Pokemon',
-        }),
-      });
-
-      const { data } = await response.json();
-
-      return {
-        props: {
-          pokemon: data?.pokemon?.[0],
+    const response = await fetch('https://beta.pokeapi.co/graphql/v1beta', {
+      method: 'POST',
+      body: JSON.stringify({
+        query: pokemonQuery,
+        variables: {
+          id: name,
         },
-      };
-    } catch (error) {
-      console.error(error);
+        operationName: 'Pokemon',
+      }),
+    });
+
+    const { data } = await response.json();
+
+    const pokemon: PokemonStats | null = data?.pokemon?.[0] ?? null;
+
+    if (!pokemon) {
+      throw new Error(`${name} not found`);
     }
+
+    return {
+      props: {
+        pokemon,
+      },
+    };
   }
 </script>
 
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { page } from '$app/stores';
-  import type { PokemonStats, Type } from 'src/types';
-  import pokemonQuery from 'src/queries/pokemonQuery';
   import { capitalizeFirstLetter } from 'utils';
-  import { fetchGraphQL } from 'network';
-
   import Card from 'components/Card/index.svelte';
-  import { stringify } from 'postcss';
 
-  export let pokemon;
+  export let pokemon: PokemonStats;
 
-  console.log('pokemon prop 🔰', pokemon);
+  const { id, images, name, species, types } = pokemon;
 
-  const name = $page.params.name.toLowerCase();
+  const image = JSON.parse(images[0].sprites).front_default;
+
+  const { descriptions, evolutionChain } = species;
+
+  const descriptionSet = new Set<string>();
+  descriptions.forEach(({ text }) => {
+    descriptionSet.add(text);
+  });
+
+  let description: string = '';
+  descriptionSet.forEach(desc => {
+    description += ` ${desc}`;
+  });
+
+  const evolutions = evolutionChain.chain.map(({ name }) => name);
 
   let failedFetch = false;
-
-  let id: number | null = null;
-  let image: string = '';
-  let types: Type[] = [];
-  let description: string = '';
-  let evolutions: string[] = [];
-
-  // onMount(async () => {
-  //   const result = await fetchGraphQL<{ JSON,stringify(data, null, 2): PokemonStats }>(
-  //     pokemonQuery,
-  //     {
-  //       id: name,
-  //     },
-  //     'Pokemon',
-  //   );
-
-  //   if (!result?.data?.pokemon?.length) {
-  //     failedFetch = true;
-  //     throw new Error('Could not fetch pokemon stats');
-  //   }
-
-  //   const { data } = result;
-  //   const { pokemon } = data;
-
-  //   ({ id, types } = pokemon[0]);
-  //   const { species, images } = pokemon[0];
-
-  //   image = JSON.parse(images[0].sprites).front_default;
-
-  //   const { descriptions, evolutionChain } = species;
-
-  //   const descriptionSet = new Set<string>();
-  //   descriptions.forEach(({ text }) => {
-  //     descriptionSet.add(text);
-  //   });
-
-  //   descriptionSet.forEach(desc => {
-  //     description += ` ${desc}`;
-  //   });
-
-  //   evolutions = evolutionChain.chain.map(({ name }) => name);
-  // });
 </script>
 
 <svelte:head>

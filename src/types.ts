@@ -28,22 +28,20 @@ export interface Type {
   };
 }
 export interface PokemonStats {
-  pokemon: {
-    id: number;
-    name: string;
-    types: Type[];
-    species: {
-      descriptions: {
-        id: number;
-        text: string;
-      }[];
-      evolutionChain: {
-        chain: Identifiers[];
-      };
-    };
-    images: {
-      sprites: string;
+  id: number;
+  name: string;
+  types: Type[];
+  species: {
+    descriptions: {
+      id: number;
+      text: string;
     }[];
+    evolutionChain: {
+      chain: Identifiers[];
+    };
+  };
+  images: {
+    sprites: string;
   }[];
 }
 
