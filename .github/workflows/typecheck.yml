@@ -11,7 +11,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  svelte-check:
+  svelte_check:
 
     runs-on: ubuntu-latest
 
@@ -28,5 +28,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npx svelte-check --output human-verbose
-#    - run: tsc --noEmit --pretty
+    - run: npm run check --output machine
