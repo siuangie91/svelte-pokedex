@@ -28,4 +28,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npx svelte-check --tsconfig ./tsconfig.json --output machine
+    - run: npx svelte-check --tsconfig ./tsconfig.json --output human-verbose
