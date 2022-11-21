@@ -2,7 +2,7 @@
 # and run typescript type checking
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: typecheck
+name: svelte
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  ts_check:
+  svelte-check:
 
     runs-on: ubuntu-latest
 
@@ -28,5 +28,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run check
-    - run: tsc --noEmit --pretty
+    - run: npm run check --output human-verbose
+#    - run: tsc --noEmit --pretty
