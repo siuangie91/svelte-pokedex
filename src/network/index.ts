@@ -1,7 +1,6 @@
-// TODO test
 import axios from 'axios';
 
-const POKEAPI_GQL_URL = 'https://beta.pokeapi.co/graphql/v1beta';
+export const POKEAPI_GQL_URL = 'https://beta.pokeapi.co/graphql/v1beta';
 
 export const fetchGraphQL = async <ResponseShape>(
   query: string,
