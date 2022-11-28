@@ -4,7 +4,7 @@
 
 📋 Tasks are managed in this [GitHub Project](https://github.com/siuangie91/svelte-pokedex/projects/1).
 
-> _Redo of my [react-pokedex](https://github.com/siuangie91/svelte-pokedex.git) project._
+> _Redo of my [react-pokedex](https://github.com/siuangie91/react-pokedex) project._
 
 Simple dropdown-based Pokedex built on the [Svelte](https://svelte.dev/) framework that pulls data from the [PokeAPI](https://pokeapi.co/) using its [GraphQL interface](https://pokeapi.co/docs/graphql).
 
