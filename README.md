@@ -1,7 +1,5 @@
 # svelte-pokedex
 
-> some test comment
-
 ![Status](https://img.shields.io/badge/status-work%20in%20progress-orange.svg?style=for-the-badge)
 
 📋 Tasks are managed in this [GitHub Project](https://github.com/siuangie91/svelte-pokedex/projects/1).
