@@ -23,9 +23,7 @@ Scaffolded with [SvelteKit](https://kit.svelte.dev/).
   &nbsp;  
   <img height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="TailwindCSS" title="TailwindCSS" style="padding-right: 1rem;" />
   &nbsp;
-  <img height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" alt="Jest" title="Jest" style="padding-right: 1rem;" /> 
-  &nbsp;
-  <img height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain-wordmark.svg" alt="Heroku" title="Heroku" style="padding-right: 1rem;" /> 
+  <img height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" alt="Jest" title="Jest" style="padding-right: 1rem;" />
 </p>
 
 ## Routes
