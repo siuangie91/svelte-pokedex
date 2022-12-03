@@ -2,7 +2,7 @@ import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   verbose: true,
   transform: {
     '^.+\\.js$': 'babel-jest',
@@ -16,5 +16,6 @@ const config: Config.InitialOptions = {
   },
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   testPathIgnorePatterns: ['/e2e/'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
 };
 export default config;
