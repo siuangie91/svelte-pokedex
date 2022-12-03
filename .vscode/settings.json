@@ -8,5 +8,9 @@
   "tailwindCSS.includeLanguages": {
     "svelte": "html"
   },
-  "tailwindCSS.emmetCompletions": true
+  "tailwindCSS.emmetCompletions": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript", "typescript"]
 }
