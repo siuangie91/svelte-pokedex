@@ -2,7 +2,12 @@ import { match } from '../name';
 
 describe('match', () => {
   it('matches strings of standard letters of any length and case insensitive', () => {
-    const strs = ['pikachu', 'Pikachu', 'clEFairy', 'superlongword'];
+    const strs = [
+      'pikachu',
+      'Pikachu',
+      'clEFairy',
+      'superlongword'
+    ];
 
     strs.forEach(str => {
       const result = match(str);
@@ -26,7 +31,13 @@ describe('match', () => {
   });
 
   it('does not allow any other special character other than hyphen', () => {
-    const args = ['ho+oh', 'some&thing', '&&&&', 'what*is', 'something-else=='];
+    const args = [
+      'ho+oh',
+      'some&thing',
+      '&&&&',
+      'what*is',
+      'something-else=='
+    ];
 
     args.forEach(arg => {
       expect(match(arg)).toBe(false);

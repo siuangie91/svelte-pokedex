@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let description: string = '';
+  export let description = '';
 </script>
 
 {#if description}
