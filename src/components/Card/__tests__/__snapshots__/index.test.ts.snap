@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders all the pokemon information like pokemon card 1`] = `
+<body>
+  <div>
+    <section
+      class="svelte-1t5s68u"
+      style="--card-bg-color: #03ab78;"
+    >
+      <div
+        class="svelte-1t5s68u"
+      >
+        <h1
+          class="svelte-1ma9vo8"
+        >
+          <span>
+            Bulbasaur
+          </span>
+           
+          <span>
+            #
+            1
+          </span>
+        </h1>
+        
+         
+        <img
+          alt="bulbasaur"
+          class="svelte-wr7qya"
+          src="path/to/image"
+        />
+        
+         
+        <h2
+          class="svelte-8hcvkc"
+        >
+          Types
+        </h2>
+         
+        <ul
+          class="svelte-8hcvkc"
+          style="--num-types: 2;"
+        >
+          <li
+            class="svelte-8hcvkc"
+            style="--type-bg-color: #03ab78; --type-text-color: #000;"
+          >
+            Grass
+             
+          </li>
+          <li
+            class="svelte-8hcvkc"
+            style="--type-bg-color: #03ab78; --type-text-color: #000;"
+          >
+            Grass
+             
+          </li>
+        </ul>
+        
+         
+        <h2
+          class="svelte-13bn853"
+        >
+          Evolution
+        </h2>
+         
+        <ol
+          class="svelte-13bn853"
+          style="--num-columns: 3;"
+        >
+          <li
+            class="svelte-13bn853"
+            style="--evolution-weight: bold;"
+          >
+            <span>
+              Bulbasaur
+            </span>
+             
+          </li>
+          <li
+            class="svelte-13bn853"
+            style="--evolution-weight: normal;"
+          >
+            <a
+              href="/pokemon/ivysaur"
+              sveltekit:reload=""
+            >
+              Ivysaur
+            </a>
+             
+          </li>
+          <li
+            class="svelte-13bn853"
+            style="--evolution-weight: normal;"
+          >
+            <a
+              href="/pokemon/venusaur"
+              sveltekit:reload=""
+            >
+              Venusaur
+            </a>
+             
+          </li>
+        </ol>
+        
+         
+        <h2
+          class="card-h2"
+        >
+          Description
+        </h2>
+         
+        <p
+          class="description svelte-185rl9w"
+        >
+          mock description
+        </p>
+        
+      </div>
+    </section>
+  </div>
+</body>
+`;
