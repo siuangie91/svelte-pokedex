@@ -4,7 +4,10 @@ const config: Config.InitialOptions = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   verbose: true,
-  transform: {},
+  transform: {
+    '^.+\\.js$': 'babel-jest',
+    '^.+\\.svelte$': 'svelte-jester',
+  },
   testPathIgnorePatterns: ['/e2e/'],
 };
 export default config;
