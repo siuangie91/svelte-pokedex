@@ -8,10 +8,7 @@ const config: Config.InitialOptions = {
     '^.+\\.js$': 'babel-jest',
     '^.+\\.ts$': 'ts-jest',
     '^.+\\.svelte$': [
-      'svelte-jester',
-      {
-        preprocess: true,
-      },
+      'svelte-jester', { preprocess: true, },
     ],
   },
   modulePaths: ['<rootDir>/src/'],

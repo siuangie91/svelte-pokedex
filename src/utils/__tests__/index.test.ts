@@ -29,7 +29,9 @@ describe('createLookupByName', () => {
             name: pokemon1.name,
             forms: [
               {
-                sprites: [{ sprites: `{"front_default": "${pokemon1.image}"}` }],
+                sprites: [
+                  { sprites: `{"front_default": "${pokemon1.image}"}` }
+                ], 
               },
             ],
           },
@@ -42,7 +44,9 @@ describe('createLookupByName', () => {
             name: pokemon2.name,
             forms: [
               {
-                sprites: [{ sprites: `{"front_default": "${pokemon2.image}"}` }],
+                sprites: [
+                  { sprites: `{"front_default": "${pokemon2.image}"}` }
+                ], 
               },
             ],
           },
@@ -68,7 +72,11 @@ describe('createLookupByName', () => {
             name,
             forms: [
               {
-                sprites: [{ sprites: '{ "not": "front_default"}' }],
+                sprites: [
+                  { 
+                    sprites: '{ "not": "front_default"}' 
+                  }
+                ], 
               },
             ],
           },

@@ -7,15 +7,21 @@ import Types from '../Types.svelte';
 describe('Types', () => {
   it('renders all the types passed to it', () => {
     const types: Type[] = [
-      {type: {name: 'fire'}},
-      {type: {name: 'fighting'}},
+      {
+        type: { 
+          name: 'fire' 
+        }
+      }, 
+      {
+        type: { 
+          name: 'fighting' 
+        }
+      },
     ];
 
-    render(Types, {
-      types
-    });
+    render(Types, { types });
 
-    types.forEach(({ type: { name }}) => {
+    types.forEach(({ type: { name } }) => {
       const typeElem = screen.getByText(capitalizeFirstLetter(name))
       expect(typeElem).toBeInTheDocument();
     })
