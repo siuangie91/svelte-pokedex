@@ -6,8 +6,15 @@ const config: Config.InitialOptions = {
   verbose: true,
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '^.+\\.svelte$': 'svelte-jester',
+    '^.+\\.ts$': 'ts-jest',
+    '^.+\\.svelte$': [
+      'svelte-jester',
+      {
+        preprocess: true,
+      },
+    ],
   },
+  moduleFileExtensions: ['js', 'ts', 'svelte'],
   testPathIgnorePatterns: ['/e2e/'],
 };
 export default config;
