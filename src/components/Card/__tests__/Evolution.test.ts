@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/svelte';
+import { render, screen } from '@testing-library/svelte';
 import { capitalizeFirstLetter } from 'utils';
 import Evolution from '../Evolution.svelte';
 
