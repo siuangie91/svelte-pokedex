@@ -18,6 +18,26 @@ module.exports = {
     node: true,
   },
   rules: {
-    'array-element-newline': ['error', { minItems: 4 }],
+    indent: ['error', 2],
+    'array-element-newline': ['error', { multiline: true, objectsInArrays: false }],
+    'space-in-brackets': ['error', 'always'],
+    'object-curly-newline': ['error', { multiline: true }],
+    'object-curly-spacing': ['error', 'always'],
+    'prefer-destructuring': [
+      'error',
+      {
+        VariableDeclarator: {
+          array: false,
+          object: true,
+        },
+        AssignmentExpression: {
+          array: true,
+          object: false,
+        },
+      },
+      {
+        enforceForRenamedProperties: false,
+      },
+    ],
   },
 };
