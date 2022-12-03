@@ -58,5 +58,15 @@
   "dependencies": {
     "axios": "^0.27.2",
     "gql-tag": "^1.0.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.svelte$": "svelte-jester"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "svelte"
+    ],
+    "testEnvironment": "jsdom"
   }
 }
