@@ -19,14 +19,18 @@ module.exports = {
   },
   rules: {
     indent: ['error', 2],
+    quotes: ['error', 'single'],
     '@typescript-eslint/no-unused-vars': 'off',
-    'array-element-newline': ['error', { multiline: true, minItems: 2 }],
-    'array-bracket-spacing': ['error', 'always', { objectsInArrays: false }],
-    'space-in-brackets': ['error', 'always'],
-    'object-curly-newline': ['error', { multiline: true }],
+    '@typescript-eslint/no-inferrable-types': 'warn',
+    'array-element-newline': ['error', { multiline: true, minItems: 4 }],
+    'array-bracket-spacing': ['error', 'never', { objectsInArrays: false }],
+    'object-curly-newline': ['error', { consistent: true, multiline: true }],
     'object-curly-spacing': ['error', 'always'],
+    'computed-property-spacing': ['warn', 'never'],
+    'no-multi-spaces': ['error'],
+    'keyword-spacing': ['error', { before: true, after: true }],
     'prefer-destructuring': [
-      'error',
+      'warn',
       {
         VariableDeclarator: {
           array: false,
