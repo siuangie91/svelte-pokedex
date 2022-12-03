@@ -18,6 +18,6 @@ module.exports = {
     node: true,
   },
   rules: {
-    'array-element-newline': ['error', 'always'],
+    'array-element-newline': ['error', { minItems: 4 }],
   },
 };
