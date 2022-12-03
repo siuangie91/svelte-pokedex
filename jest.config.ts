@@ -14,6 +14,7 @@ const config: Config.InitialOptions = {
       },
     ],
   },
+  modulePaths: ['<rootDir>/src/'],
   moduleFileExtensions: ['js', 'ts', 'svelte'],
   testPathIgnorePatterns: ['/e2e/'],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
