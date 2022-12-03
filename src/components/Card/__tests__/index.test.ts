@@ -1,7 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/svelte';
-import { capitalizeFirstLetter } from 'utils';
-import type { Type } from 'src/types';
+import { render } from '@testing-library/svelte';
 import Card from '../index.svelte';
 
 describe('Card', () => {
@@ -10,10 +8,12 @@ describe('Card', () => {
     const name = "bulbasaur";
     const image = "path/to/image";
     const types = [
-      { type: { name: 'grass' } }, 
+      { type: { name: 'grass' } },
       { type: { name: 'grass' } },
     ];
-    const evolutions = [name, 'ivysaur', 'venusaur'];
+    const evolutions = [ name,
+      'ivysaur',
+      'venusaur' ];
     const description = 'mock description';
 
     const { container } = render(Card, {
