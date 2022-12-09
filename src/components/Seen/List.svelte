@@ -14,7 +14,7 @@
 </script>
 
 {#if !pokemonsList.length}
-  <p>You haven't seen any Pokémon yet!</p>
+  <p data-testid="no-seen-yet-text">You haven't seen any Pokémon yet!</p>
 {:else}
   <ul>
     {#each pokemonsList as { id, name, image }}
