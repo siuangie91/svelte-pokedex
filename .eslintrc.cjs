@@ -53,6 +53,6 @@ module.exports = {
       'warn',
       { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
     ],
-    indent: ["error", 2],
+    indent: ['error', 2],
   },
 };
