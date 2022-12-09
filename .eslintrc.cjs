@@ -20,6 +20,8 @@ module.exports = {
   rules: {
     indent: ['error', 2],
     quotes: ['error', 'single'],
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"],
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-inferrable-types': 'warn',
     'array-element-newline': ['error', { multiline: true, minItems: 4 }],
@@ -51,5 +53,6 @@ module.exports = {
       'warn',
       { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
     ],
+    indent: ["error", 2],
   },
 };
