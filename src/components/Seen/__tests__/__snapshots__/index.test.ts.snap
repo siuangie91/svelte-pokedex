@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders a list of seen pokemon 1`] = `
+<body>
+  <div>
+    <section
+      class="svelte-142rirh"
+    >
+      <h2>
+        Here's what you've seen so far:
+      </h2>
+       
+      <ul>
+        <li
+          class="svelte-gtgtc4"
+        >
+          <p>
+            <a
+              class="svelte-gtgtc4"
+              href="/pokemon/Fake1"
+              target="_blank"
+            >
+              <span
+                class="id-name svelte-gtgtc4"
+              >
+                1
+                . 
+                Fake1
+              </span>
+               
+              <img
+                alt="Fake1"
+                class="svelte-gtgtc4"
+                src="path/to/one"
+              />
+               
+              <span
+                aria-hidden="true"
+                class="link-icon svelte-gtgtc4"
+              >
+                <span
+                  class="svelte-gtgtc4"
+                >
+                  ☐
+                </span>
+                 
+                <span
+                  class="link-icon-arrow svelte-gtgtc4"
+                >
+                  ↗
+                </span>
+              </span>
+            </a>
+          </p>
+           
+        </li>
+        <li
+          class="svelte-gtgtc4"
+        >
+          <p>
+            <a
+              class="svelte-gtgtc4"
+              href="/pokemon/Fake2"
+              target="_blank"
+            >
+              <span
+                class="id-name svelte-gtgtc4"
+              >
+                2
+                . 
+                Fake2
+              </span>
+               
+              <img
+                alt="Fake2"
+                class="svelte-gtgtc4"
+                src="path/to/two"
+              />
+               
+              <span
+                aria-hidden="true"
+                class="link-icon svelte-gtgtc4"
+              >
+                <span
+                  class="svelte-gtgtc4"
+                >
+                  ☐
+                </span>
+                 
+                <span
+                  class="link-icon-arrow svelte-gtgtc4"
+                >
+                  ↗
+                </span>
+              </span>
+            </a>
+          </p>
+           
+        </li>
+        <li
+          class="svelte-gtgtc4"
+        >
+          <p>
+            <a
+              class="svelte-gtgtc4"
+              href="/pokemon/Fake3"
+              target="_blank"
+            >
+              <span
+                class="id-name svelte-gtgtc4"
+              >
+                3
+                . 
+                Fake3
+              </span>
+               
+              <img
+                alt="Fake3"
+                class="svelte-gtgtc4"
+                src="path/to/three"
+              />
+               
+              <span
+                aria-hidden="true"
+                class="link-icon svelte-gtgtc4"
+              >
+                <span
+                  class="svelte-gtgtc4"
+                >
+                  ☐
+                </span>
+                 
+                <span
+                  class="link-icon-arrow svelte-gtgtc4"
+                >
+                  ↗
+                </span>
+              </span>
+            </a>
+          </p>
+           
+        </li>
+      </ul>
+      
+    </section>
+  </div>
+</body>
+`;
