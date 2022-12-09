@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/svelte';
-
 import Description from '../Description.svelte';
 
 describe('Description', () => {
