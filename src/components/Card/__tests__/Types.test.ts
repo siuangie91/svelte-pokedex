@@ -22,8 +22,8 @@ describe('Types', () => {
     render(Types, { types });
 
     types.forEach(({ type: { name } }) => {
-      const typeElem = screen.getByText(capitalizeFirstLetter(name))
+      const typeElem = screen.getByText(capitalizeFirstLetter(name));
       expect(typeElem).toBeInTheDocument();
-    })
+    });
   });
 });
