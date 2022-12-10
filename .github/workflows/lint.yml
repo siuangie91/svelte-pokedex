@@ -5,7 +5,7 @@ name: lint
 
 on:
   workflow_run:
-    workflows: ['setup']
+    workflows: [setup]
     branches: [main]
     types:
       - completed
