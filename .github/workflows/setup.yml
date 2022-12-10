@@ -4,8 +4,8 @@
 
 name: setup
 
-on:
-  on: [workflow_call]
+# allow this workflow to be called from other workflows
+on: [workflow_call]
 
 jobs:
   npm_ci:
