@@ -4,10 +4,17 @@
 name: lint
 
 on:
-  push:
-    branches: ['main']
-  pull_request:
-    branches: ['main']
+  workflow_run:
+    workflows: ['setup']
+    branches: [main]
+    types:
+      - completed
+
+# on:
+#   push:
+#     branches: ['main']
+#   pull_request:
+#     branches: ['main']
 
 jobs:
   # reference the setup workflow
