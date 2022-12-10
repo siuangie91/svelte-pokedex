@@ -4,6 +4,10 @@
 name: lint
 
 on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
   workflow_run:
     workflows: [setup]
     branches: [main]
@@ -21,9 +25,9 @@ jobs:
   # setup:
   #   uses: ./.github/workflows/setup.yml
   eslint:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # needs: [setup] # make the setup workflow a dependency
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     strategy:
       matrix:
