@@ -10,9 +10,8 @@ on:
     branches: ['main']
   workflow_run:
     workflows: [setup]
-    branches: [main]
-    types:
-      - completed
+    # branches: [main]
+    types: [completed]
 
 # on:
 #   push:
