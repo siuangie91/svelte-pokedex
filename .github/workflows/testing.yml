@@ -15,25 +15,38 @@ on:
       - completed
 
 jobs:
-  if: ${{ github.event.workflow_run.conclusion == 'success' }
   # reference the setup workflow
   # setup:
   #   uses: ./.github/workflows/setup.yml
-  depend:
+  # depend:
     # needs: [setup] # make the setup workflow a dependency
     runs-on: ubuntu-latest
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }
+    
 
-    strategy:
-      matrix:
-        node-version: [16.16.0]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    # strategy:
+    #   matrix:
+    #     node-version: [16.16.0]
+    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: echo 'The triggering workflow passed'
+    # steps:
+    #   - uses: actions/checkout@v3
+    #   - name: Use Node.js ${{ matrix.node-version }}
+    #     uses: actions/setup-node@v3
+    #     with:
+    #       node-version: ${{ matrix.node-version }}
+    #       cache: 'npm'
+    #   - run: echo 'The triggering workflow passed'
       # - run: npx eslint .
+
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo 'The triggering workflow passed'
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
+
