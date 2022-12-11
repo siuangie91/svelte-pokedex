@@ -14,12 +14,6 @@ on:
     types:
       - completed
 
-# on:
-#   push:
-#     branches: ['main']
-#   pull_request:
-#     branches: ['main']
-
 jobs:
   # reference the setup workflow
   # setup:
