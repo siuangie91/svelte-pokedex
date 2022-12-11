@@ -4,13 +4,13 @@
 name: lint
 
 on:
-  # push:
-  #   branches: ['main']
+  push:
+    branches: ['main']
   pull_request:
     branches: ['main']
   workflow_run:
     workflows: [setup]
-    branches-ignore: [main]
+    branches: [main]
     types: [completed]
 
 # on:
@@ -27,14 +27,14 @@ jobs:
     # needs: [setup] # make the setup workflow a dependency
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }
+
+    strategy:
+      matrix:
+        node-version: [16.16.0]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
       - run: echo 'The triggering workflow passed'
-
-    # strategy:
-    #   matrix:
-    #     node-version: [16.16.0]
-    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     # steps:
     #   - uses: actions/checkout@v3
     #   - name: Use Node.js ${{ matrix.node-version }}
