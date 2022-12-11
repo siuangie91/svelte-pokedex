@@ -2,7 +2,7 @@
 # It is meant to be called in other workflows as a first step.
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_call
 
-name: setup
+name: Setup
 
 on:
   push:
