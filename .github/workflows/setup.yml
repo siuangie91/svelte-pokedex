@@ -2,7 +2,7 @@
 # It is meant to be called in other workflows as a first step.
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_call
 
-name: Setup
+name: needs
 
 on:
   push:
@@ -14,7 +14,8 @@ on:
 # on: [workflow_call]
 
 jobs:
-  npm_ci:
+  setup:
+    name: Clean install
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,3 +31,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm ci
+
+  dependent_job:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'this worked!'
