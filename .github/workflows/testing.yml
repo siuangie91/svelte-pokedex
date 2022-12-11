@@ -21,7 +21,7 @@ jobs:
   depend:
     # needs: [setup] # make the setup workflow a dependency
     runs-on: ubuntu-latest
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }
+    if: ${{ github.event.workflow_run.conclusion == 'success' }
 
     strategy:
       matrix:
