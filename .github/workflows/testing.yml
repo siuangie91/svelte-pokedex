@@ -15,7 +15,7 @@ on:
       - completed
 
 jobs:
-  # if: ${{ github.event.workflow_run.conclusion == 'success' }
+  if: ${{ github.event.workflow_run.conclusion == 'success' }
   # reference the setup workflow
   # setup:
   #   uses: ./.github/workflows/setup.yml
