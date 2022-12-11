@@ -6,11 +6,11 @@ name: WIP
 on:
   # push:
   #   branches: ['main']
-  pull_request:
-    branches: ['main']
+  # pull_request:
+  #   branches: ['main']
   workflow_run:
     workflows: [Setup]
-    branches: [main]
+    # branches: [main]
     types: [completed]
 
 jobs:
