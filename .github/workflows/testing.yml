@@ -6,38 +6,15 @@ name: wip
 on:
   # push:
   #   branches: ['main']
-  # pull_request:
-  #   branches: ['main']
-  workflow_run:
-    workflows: [Setup]
-    branches: [main]
-    types: [completed]
+  pull_request:
+    branches: ['main']
+  # workflow_run:
+  #   workflows: [Setup]
+  #   branches: [main]
+  #   types: [completed]
 
 jobs:
-  # reference the setup workflow
-  # setup:
-  #   uses: ./.github/workflows/setup.yml
-  # depend:
-    # needs: [setup] # make the setup workflow a dependency
-    runs-on: ubuntu-latest
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }
-    
-
-    # strategy:
-    #   matrix:
-    #     node-version: [16.16.0]
-    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    # steps:
-    #   - uses: actions/checkout@v3
-    #   - name: Use Node.js ${{ matrix.node-version }}
-    #     uses: actions/setup-node@v3
-    #     with:
-    #       node-version: ${{ matrix.node-version }}
-    #       cache: 'npm'
-    #   - run: echo 'The triggering workflow passed'
-      # - run: npx eslint .
-
+  runs-on: ubuntu-latest
   on-success:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -48,4 +25,3 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - run: echo 'The triggering workflow failed'
-
