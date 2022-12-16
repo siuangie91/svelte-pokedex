@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/status-work%20in%20progress-orange.svg?style=for-the-badge)
 
-📋 Tasks are managed in this [GitHub Project](https://github.com/siuangie91/svelte-pokedex/projects/1).
+📋 Tasks are managed in this [GitHub Project](https://github.com/users/siuangie91/projects/6/views/1).
 
 > _Redo of my [react-pokedex](https://github.com/siuangie91/react-pokedex) project._
 
