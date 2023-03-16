@@ -1,7 +1,7 @@
 <script lang="ts">
   import { seenPokemon } from 'src/stores';
   import type { PokemonLookup } from 'src/types';
-  import { capitalizeFirstLetter } from 'utils';
+  import { capitalizeFirstLetter, getFullImageUrl } from 'utils';
 
   let pokemons: PokemonLookup = {};
 
@@ -20,9 +20,9 @@
     {#each pokemonsList as { id, name, image }}
       <li>
         <p>
-          <a href={`/pokemon/${name}`} target="_blank">
+          <a href={`/pokemon/${name}`} target="_blank" rel="noreferrer">
             <span class="id-name">{id}. {capitalizeFirstLetter(name)}</span>
-            <img src={image} alt={name} />
+            <img src={getFullImageUrl(image)} alt={name} />
             <!-- use html entities to create open in new tab icon -->
             <span aria-hidden="true" class="link-icon">
               <span>&#9744</span><!-- ☐ -->

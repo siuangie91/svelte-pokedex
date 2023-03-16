@@ -3,7 +3,7 @@
   import { page } from '$app/stores';
   import type { PokemonQueryResponse, Type } from 'src/types';
   import pokemonQuery from 'src/queries/pokemonQuery';
-  import { capitalizeFirstLetter } from 'utils';
+  import { capitalizeFirstLetter, getFullImageUrl } from 'utils';
   import { fetchGraphQL } from 'network';
 
   import Card from 'components/Card/index.svelte';
@@ -38,7 +38,7 @@
     ({ id, types } = pokemon[0]);
     const { species, images } = pokemon[0];
 
-    image = JSON.parse(images[0].sprites).front_default;
+    image = getFullImageUrl(JSON.parse(images[0].sprites).front_default);
 
     const { descriptions, evolutionChain } = species;
 
