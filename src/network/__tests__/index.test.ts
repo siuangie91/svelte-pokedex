@@ -11,7 +11,7 @@ jest.mock('axios', () => {
 });
 
 describe('fetchGraphQL', () => {
-  it('makes a POST request with the require GQL payload', async () => {
+  it('makes a POST request with the required GQL payload', async () => {
     const payload = {
       query: 'mock query string',
       variables: {

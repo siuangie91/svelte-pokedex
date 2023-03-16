@@ -35,6 +35,20 @@ export const capitalizeFirstLetter = (str: string) => {
   return `${firstLetter.toUpperCase()}${rest}`;
 };
 
+export const IMAGE_HOST_DIR = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/';
+
+/**
+ * Get the full image URL for a given sprite path like
+ * `/media/sprites/pokemon/3.png`
+ * @param image 
+ */
+export const getFullImageUrl = (image: string) => {
+  if (image.startsWith('/media/')) {
+    return image.replace('/media/', IMAGE_HOST_DIR);
+  }
+  return image;
+};
+
 /**
  * Lookup table to associate a Pokemon's type with a color
  * and whether that color is considered dark
@@ -121,3 +135,4 @@ export const TYPE_COLOR_LOOKUP: Readonly<TypeColorLookup> = {
     dark: true,
   },
 } as const;
+
