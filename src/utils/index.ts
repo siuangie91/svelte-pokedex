@@ -35,6 +35,11 @@ export const capitalizeFirstLetter = (str: string) => {
   return `${firstLetter.toUpperCase()}${rest}`;
 };
 
+/**
+ * Get the full image URL for a given sprite path like
+ * `/media/sprites/pokemon/3.png`
+ * @param image 
+ */
 export const getFullImageUrl = (image: string) => {
   return image.replace(
     '/media/',
