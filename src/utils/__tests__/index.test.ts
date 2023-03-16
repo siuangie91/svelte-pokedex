@@ -1,5 +1,5 @@
 import type { Specy } from 'src/types';
-import { createLookupByName, capitalizeFirstLetter } from '..';
+import { createLookupByName, capitalizeFirstLetter, IMAGE_HOST_DIR, getFullImageUrl } from '..';
 
 describe('createLookupByName', () => {
   it('returns an empty object if entries is empty', () => {
@@ -107,5 +107,21 @@ describe('capitalizeFirstLetter', () => {
     const result = capitalizeFirstLetter(input);
 
     expect(result).toBe('Lowercase something');
+  });
+});
+
+describe('getFullImageUrl', () => {
+  it('replaces the media folder in the path with the full image host directory', () => {
+    const folder = '/media/some/image.png';
+    const result = getFullImageUrl(folder);
+
+    expect(result.startsWith(IMAGE_HOST_DIR)).toBe(true);
+  });
+
+  it('returns the given image path undisturbed if it is not in the media folder', () => {
+    const folder = '/not/in/media/image.png';
+    const result = getFullImageUrl(folder);
+
+    expect(result).toBe(folder);
   });
 });
