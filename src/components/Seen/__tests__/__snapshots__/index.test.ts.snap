@@ -18,6 +18,7 @@ exports[`Card renders a list of seen pokemon 1`] = `
             <a
               class="svelte-gtgtc4"
               href="/pokemon/Fake1"
+              rel="noreferrer"
               target="_blank"
             >
               <span
@@ -61,6 +62,7 @@ exports[`Card renders a list of seen pokemon 1`] = `
             <a
               class="svelte-gtgtc4"
               href="/pokemon/Fake2"
+              rel="noreferrer"
               target="_blank"
             >
               <span
@@ -104,6 +106,7 @@ exports[`Card renders a list of seen pokemon 1`] = `
             <a
               class="svelte-gtgtc4"
               href="/pokemon/Fake3"
+              rel="noreferrer"
               target="_blank"
             >
               <span
